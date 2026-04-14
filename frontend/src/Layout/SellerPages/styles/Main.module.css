@@ -1,0 +1,76 @@
+/* styles.css */
+.grid {
+  background-color: white;
+  padding: 20px;
+  margin: 0.5%;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+.tableContainer {
+  margin-top: 10px;
+  max-height: 600px; /* Adjust this value as needed */
+  overflow-y: auto;
+  border-bottom: 0.4px solid #ccc; /* Adjust the border color and thickness as needed */
+  position: sticky;
+  border-radius: 5px;
+}
+
+.flexcontainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1px; /* Adjust this value as needed */
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+
+
+.SearchContainer {
+  align-items: center;
+  margin-top: 10px; /* Adjust this value as needed */
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  width: 130%;
+}
+
+
+.search {
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+
+
+.minimizedHeader {
+  font-size: 0.7rem; /* Adjust the font size as needed */
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  background-color: #f1f3f5; /* To match the table background */
+  z-index: 1;
+}
+
+.pagination {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center; /* Center the pagination horizontally */
+  align-items: center;
+  flex-wrap: wrap; /* This allows items to wrap to the next line on small screens */
+}
+
+
+
+/* Add media query for responsive input width */
+@media (max-width: 600px) {
+  .responsiveInput {
+    width: 100% ;
+  }
+}

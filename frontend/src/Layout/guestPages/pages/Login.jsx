@@ -1,0 +1,177 @@
+import {
+  TextInput,
+  PasswordInput,
+  Anchor,
+  Paper,
+  Title,
+  Container,
+  Group,
+  Button,
+  Loader,
+} from '@mantine/core';
+import { useForm } from '@mantine/form';
+import { notifications } from '@mantine/notifications';
+import { useNavigate } from "react-router-dom";
+
+import { useUserContext } from "../../../context/userContext";
+import { ADMIN_DASHBOARD_ROUTE, SELLER_DASHBOARD_ROUTE, REGISTER_ROUTE, FORGET_PASSWORD_ROUTE, TWO_FACTOR_CHALLENGE_ROUTE } from '../../../Router';
+import { useEffect, useState } from 'react';
+
+// language traslation
+import { useTranslation } from '../../../../node_modules/react-i18next';
+// language traslation
+
+
+export default function AuthenticationPage() {
+
+  // language traslation
+  const { t } = useTranslation();
+  // language traslation
+
+  const navigate = useNavigate();
+
+  const { login, authenticated, setAuthenticated, setToken , UserRole , setUserRole } = useUserContext();
+  const [isLoading, setIsLoading] = useState(false); // State to manage loading state
+
+
+  const form = useForm({
+    // initialValues: { email: 'iskanderboss1999@gmail.com', password: 'iskanderboss1999@gmail.com' },
+    initialValues: { email: 'iskanderboss1999@gmail.com', password: 'iskanderboss1999@gmail.com' },
+    validate: {
+      email: (value) => (/^\S+@\S+$/.test(value) ? null : t('guest-guestPages-Authentication-email-error')),
+      password: (value) => (value.length < 8 ? t('guest-guestPages-Authentication-password-error') : null),
+    },
+  });
+
+
+
+  const handleError = (errors) => {
+    if (errors.email) {
+      notifications.show({ message: t('guest-guestPages-Authentication-email-error-toast'), color: 'red' });
+    } else if (errors.password) {
+      notifications.show({ message: t('guest-guestPages-Authentication-password-error-toast'), color: 'red' });
+    }
+  };
+
+
+
+  // Submit handler
+  const handleSubmit = async ({ email, password }) => {
+    setIsLoading(true); // Set loading state to true
+    try {
+      const { status, data } = await login(email, password); // get it from Context Api
+      if (status === 200) {
+        if (data.two_factor_required) {
+          notifications.show({
+            message: t('guest-guestPages-Authentication-two-factor-sent-toast') || 'Two-factor code sent to your email.',
+            color: 'blue',
+          });
+          navigate(TWO_FACTOR_CHALLENGE_ROUTE, { state: { email: data.user?.email , role: data.user?.role} });
+          return;
+        }
+
+        const { role } = data.user;
+
+        setAuthenticated(true);
+        setToken(data.token);
+        setUserRole(role);
+
+        // Show success notification
+        notifications.show({
+          message: t('guest-guestPages-Authentication-login-success-toast'),
+          color: 'green',
+        });
+
+        if (role === 'admin') {
+          navigate(ADMIN_DASHBOARD_ROUTE);
+        } else if (role === 'seller') {
+          navigate(SELLER_DASHBOARD_ROUTE);
+        }
+      }
+    } catch (reason) {
+      notifications.show({ message: reason.response.data.message, color: 'red' });
+    } finally {
+      setIsLoading(false); // Reset loading state after request completes
+    }
+  };
+
+
+
+  // Send to  dashboard if auth = true if user want to play with urls 
+  useEffect(() => {
+    if (authenticated) {
+      if (UserRole === 'admin') {
+        navigate(ADMIN_DASHBOARD_ROUTE);
+      } else if (UserRole === 'seller') {
+        navigate(SELLER_DASHBOARD_ROUTE);
+      }
+    }
+  }, []);
+
+
+
+
+  return (
+    <Container size={600} my={100}>
+
+
+      <img src="/logo.png" style={{ width: '100px', height: '100px', borderRadius: '50%', display: 'block', margin: '0 auto' }} alt="Logo" />
+
+
+      <Title ta="center" mt={'70px'} size="h3">
+        {t('guest-guestPages-Authentication-welcome')}
+      </Title>
+      <Paper withBorder shadow="md" p={30} mt={30} radius="md">
+        <form onSubmit={form.onSubmit(handleSubmit, handleError)}>
+
+
+          <TextInput
+            withAsterisk
+            mt="sm"
+            label={t('guest-guestPages-Authentication-email')}
+            placeholder={t('guest-guestPages-Authentication-email')}
+            {...form.getInputProps('email')}
+          />
+
+
+          <PasswordInput
+            withAsterisk
+            label={t('guest-guestPages-Authentication-password')}
+            placeholder={t('guest-guestPages-Authentication-password')}
+            {...form.getInputProps('password')}
+            mt="md"
+          />
+
+
+          <Group justify="space-between" mt="lg">
+            <Anchor
+              onClick={() => navigate(FORGET_PASSWORD_ROUTE)}
+              variant="gradient"
+              gradient={{ from: 'themeColor.4', to: 'themeColor.4' }}
+              size="sm">{t('guest-guestPages-Authentication-password-forgot')}</Anchor>
+          </Group>
+
+          {isLoading ?
+            <Button color="themeColor.4" disabled type="submit" mt="xl" fullWidth>
+              <Loader color="themeColor.9" type="dots" />
+            </Button>
+            :
+            <Button color="themeColor.9" type="submit" mt="xl" fullWidth>
+              {t('guest-guestPages-Authentication-submit')}
+            </Button>
+          }
+
+          <Group justify="center" mt="lg">
+            <Anchor
+              onClick={() => navigate(REGISTER_ROUTE)}
+              variant="gradient"
+              gradient={{ from: 'themeColor.4', to: 'themeColor.4' }}
+              size="sm">{t('guest-guestPages-Authentication-register')}
+            </Anchor>
+          </Group>
+
+        </form>
+      </Paper>
+    </Container>
+  );
+}
