@@ -6,10 +6,11 @@ It follows a **fully separated architecture**, where backend and frontend are in
 
 🔐 Key Features
 - Laravel REST API backend
-- React.js modern frontend
+- React.js modern frontend with mantine
 - Laravel Sanctum authentication
 - Fully separated architecture (decoupled frontend/backend)
 - Multi-language ready structure (i18n support) / french / english
+- Dark mode support
 - Scalable and clean project structure
 - File upload support via Laravel storage
 
