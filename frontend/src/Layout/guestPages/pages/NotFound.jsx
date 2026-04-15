@@ -20,13 +20,13 @@ export default function NothingFoundBackground() {
       <div className={classes.inner}>
         <IllustrationNotFound className={classes.image} />
         <div className={classes.content}>
-          <Title className={classes.title}>{t('guest-guestPages-NotFound-title')}</Title>
+          <Title className={classes.title}>{t('guest.pages.notFound.title')}</Title>
           <Text c="dimmed" size="lg" ta="center" className={classes.description}>
-            {t('guest-guestPages-NotFound-description')}
+            {t('guest.pages.notFound.description')}
           </Text>
           <Group justify="center">
             <Link to={LANDING_ROUTE}>
-              <Button color="themeColor.9" size="md">{t('guest-guestPages-NotFound-button')}</Button>
+              <Button color="themeColor.9" size="md">{t('guest.pages.notFound.button')}</Button>
             </Link>
           </Group>
         </div>

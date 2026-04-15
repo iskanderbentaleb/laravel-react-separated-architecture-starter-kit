@@ -22,16 +22,16 @@ export function SessionCard({ session, simplifyUserAgent, formatSessionLastActiv
               {session.user_agent_readable || simplifyUserAgent(session.user_agent)}
             </Text>
             <Text size="xs" c="dimmed">
-              {t('admin-AdminPages-UserSettings-ip-address')}: {session.ip_address || t('admin-AdminPages-UserSettings-session-unknown')}
+              {t('admin.pages.settings.activeSessions.ipAddress')}: {session.ip_address || t('admin.pages.settings.activeSessions.sessionUnknown')}
             </Text>
             <Text size="xs" c="dimmed">
-              {t('admin-AdminPages-UserSettings-last-activity')}: {formatSessionLastActive(session.last_active)}
+              {t('admin.pages.settings.activeSessions.lastActivity')}: {formatSessionLastActive(session.last_active)}
             </Text>
           </div>
         </Group>
         {session.current && (
           <Badge color="blue" variant="light" radius="md">
-            {t('admin-AdminPages-UserSettings-current-session')}
+            {t('admin.pages.settings.activeSessions.currentSession')}
           </Badge>
         )}
       </Group>

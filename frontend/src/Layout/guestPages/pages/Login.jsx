@@ -38,8 +38,8 @@ export default function AuthenticationPage() {
     // initialValues: { email: 'iskanderboss1999@gmail.com', password: 'iskanderboss1999@gmail.com' },
     initialValues: { email: 'iskanderboss1999@gmail.com', password: 'iskanderboss1999@gmail.com' },
     validate: {
-      email: (value) => (/^\S+@\S+$/.test(value) ? null : t('guest-guestPages-Authentication-email-error')),
-      password: (value) => (value.length < 8 ? t('guest-guestPages-Authentication-password-error') : null),
+      email: (value) => (/^\S+@\S+$/.test(value) ? null : t('guest.pages.authentication.email-error')),
+      password: (value) => (value.length < 8 ? t('guest.pages.authentication.password-error') : null),
     },
   });
 
@@ -47,9 +47,9 @@ export default function AuthenticationPage() {
 
   const handleError = (errors) => {
     if (errors.email) {
-      notifications.show({ message: t('guest-guestPages-Authentication-email-error-toast'), color: 'red' });
+      notifications.show({ message: t('guest.pages.authentication.email-error-toast'), color: 'red' });
     } else if (errors.password) {
-      notifications.show({ message: t('guest-guestPages-Authentication-password-error-toast'), color: 'red' });
+      notifications.show({ message: t('guest.pages.authentication.password-error-toast'), color: 'red' });
     }
   };
 
@@ -63,7 +63,7 @@ export default function AuthenticationPage() {
       if (status === 200) {
         if (data.two_factor_required) {
           notifications.show({
-            message: t('guest-guestPages-Authentication-two-factor-sent-toast') || 'Two-factor code sent to your email.',
+            message: t('guest.pages.authentication.two-factor-sent-toast') || 'Two-factor code sent to your email.',
             color: 'blue',
           });
           navigate(TWO_FACTOR_CHALLENGE_ROUTE, { state: { email: data.user?.email , role: data.user?.role} });
@@ -78,7 +78,7 @@ export default function AuthenticationPage() {
 
         // Show success notification
         notifications.show({
-          message: t('guest-guestPages-Authentication-login-success-toast'),
+          message: t('guest.pages.authentication.login-success-toast'),
           color: 'green',
         });
 
@@ -119,7 +119,7 @@ export default function AuthenticationPage() {
 
 
       <Title ta="center" mt={'70px'} size="h3">
-        {t('guest-guestPages-Authentication-welcome')}
+        {t('guest.pages.authentication.welcome')}
       </Title>
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
         <form onSubmit={form.onSubmit(handleSubmit, handleError)}>
@@ -128,16 +128,16 @@ export default function AuthenticationPage() {
           <TextInput
             withAsterisk
             mt="sm"
-            label={t('guest-guestPages-Authentication-email')}
-            placeholder={t('guest-guestPages-Authentication-email')}
+            label={t('guest.pages.authentication.email')}
+            placeholder={t('guest.pages.authentication.email')}
             {...form.getInputProps('email')}
           />
 
 
           <PasswordInput
             withAsterisk
-            label={t('guest-guestPages-Authentication-password')}
-            placeholder={t('guest-guestPages-Authentication-password')}
+            label={t('guest.pages.authentication.password')}
+            placeholder={t('guest.pages.authentication.password')}
             {...form.getInputProps('password')}
             mt="md"
           />
@@ -148,7 +148,7 @@ export default function AuthenticationPage() {
               onClick={() => navigate(FORGET_PASSWORD_ROUTE)}
               variant="gradient"
               gradient={{ from: 'themeColor.4', to: 'themeColor.4' }}
-              size="sm">{t('guest-guestPages-Authentication-password-forgot')}</Anchor>
+              size="sm">{t('guest.pages.authentication.password-forgot')}</Anchor>
           </Group>
 
           {isLoading ?
@@ -157,7 +157,7 @@ export default function AuthenticationPage() {
             </Button>
             :
             <Button color="themeColor.9" type="submit" mt="xl" fullWidth>
-              {t('guest-guestPages-Authentication-submit')}
+              {t('guest.pages.authentication.submit')}
             </Button>
           }
 
@@ -166,7 +166,7 @@ export default function AuthenticationPage() {
               onClick={() => navigate(REGISTER_ROUTE)}
               variant="gradient"
               gradient={{ from: 'themeColor.4', to: 'themeColor.4' }}
-              size="sm">{t('guest-guestPages-Authentication-register')}
+              size="sm">{t('guest.pages.authentication.register')}
             </Anchor>
           </Group>
 

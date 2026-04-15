@@ -33,8 +33,8 @@ export default function TwoFactorChallenge() {
       code: '',
     },
     validate: {
-      email: (value) => (/^\S+@\S+\.\S+$/.test(value) ? null : t('twoFactor-email-error') || 'Enter a valid email'),
-      code: (value) => (value.length !== 6 ? t('twoFactor-code-error') || 'Enter the 6-digit code' : null),
+      email: (value) => (/^\S+@\S+\.\S+$/.test(value) ? null : t('guest.pages.twoFactor.email-error') ),
+      code: (value) => (value.length !== 6 ? t('guest.pages.twoFactor.code-error') : null),
     },
   });
 
@@ -47,12 +47,12 @@ export default function TwoFactorChallenge() {
   const handleError = (errors) => {
     if (errors.email) {
       notifications.show({ 
-        message: t('twoFactor-email-error-toast') || 'Please enter a valid email address', 
+        message: t('guest.pages.twoFactor.email-error-toast') , 
         color: 'red' 
       });
     } else if (errors.code) {
       notifications.show({ 
-        message: t('twoFactor-code-error-toast') || 'Please enter the 6-digit verification code', 
+        message: t('guest.pages.twoFactor.code-error-toast') , 
         color: 'red' 
       });
     }
@@ -65,7 +65,7 @@ export default function TwoFactorChallenge() {
       if (UserRoleUrl === 'admin') {
         const { data } = await adminApi.verifyTwoFactor(values);
         notifications.show({
-          message: t('twoFactor-verify-success') || 'Two-factor authentication code accepted.',
+          message: t('guest.pages.twoFactor.verify-success') ,
           color: 'green',
         });
 
@@ -79,7 +79,7 @@ export default function TwoFactorChallenge() {
       } else if (UserRoleUrl === 'seller') {
           const { data } = await sellerApi.verifyTwoFactor(values);
           notifications.show({
-            message: t('twoFactor-verify-success') || 'Two-factor authentication code accepted.',
+            message: t('guest.pages.twoFactor.verify-success') ,
             color: 'green',
           });
 
@@ -92,7 +92,7 @@ export default function TwoFactorChallenge() {
       }
     } catch (error) {
       notifications.show({
-        message: error?.response?.data?.message || t('twoFactor-invalid-code') || 'Please check the code and try again.',
+        message: error?.response?.data?.message || t('guest.pages.twoFactor.invalid-code') ,
         color: 'red',
       });
     } finally {
@@ -115,7 +115,7 @@ export default function TwoFactorChallenge() {
       />
 
       <Title size="h3" ta="center" mt={'70px'}>
-        {t('twoFactor-title') || 'Two-Factor Authentication'}
+        { t('guest.pages.twoFactor.title') }
       </Title>
 
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
@@ -123,21 +123,21 @@ export default function TwoFactorChallenge() {
           <Stack spacing="md">
             <TextInput
               withAsterisk
-              label={t('twoFactor-email') || 'Email'}
-              placeholder={t('twoFactor-email-placeholder') || 'your@email.com'}
+              label={t('guest.pages.twoFactor.email')}
+              placeholder={t('guest.pages.twoFactor.email-placeholder')}
               {...form.getInputProps('email')}
             />
 
             <TextInput
               withAsterisk
-              label={t('twoFactor-code') || 'Verification code'}
-              placeholder={t('twoFactor-code-placeholder') || '123456'}
+              label={t('guest.pages.twoFactor.code')}
+              placeholder={t('guest.pages.twoFactor.code-placeholder')}
               maxLength={6}
               {...form.getInputProps('code')}
             />
 
             <Text size="sm" c="dimmed" mt="sm">
-              {t('twoFactor-instruction') || 'Enter the 6-digit code sent to your email to continue.'}
+              {t('guest.pages.twoFactor.instruction')}
             </Text>
 
             {loading ? (
@@ -146,7 +146,7 @@ export default function TwoFactorChallenge() {
               </Button>
             ) : (
               <Button color="themeColor.9" type="submit" mt="xl" fullWidth>
-                {t('twoFactor-verify') || 'Verify & Continue'}
+                {t('guest.pages.twoFactor.verify')}
               </Button>
             )}
 
@@ -156,7 +156,7 @@ export default function TwoFactorChallenge() {
                 onClick={() => navigate(LOGIN_ROUTE)}
                 c="themeColor.4"
               >
-                {t('twoFactor-back-login') || 'Back to login'}
+                {t('guest.pages.twoFactor.back-login')}
               </Button>
             </Group>
           </Stack>

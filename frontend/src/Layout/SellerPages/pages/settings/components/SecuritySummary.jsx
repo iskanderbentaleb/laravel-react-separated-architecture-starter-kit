@@ -23,10 +23,10 @@ export function SecuritySummary({ completion, fraction, color, onOpenDetails }) 
           </ThemeIcon>
           <div>
             <Text fw={700} size="sm">
-              {t('admin-AdminPages-UserSettings-security-progress-title')}
+              {t('seller.pages.settings.security.progress.title')}
             </Text>
             <Text size="xs" c="dimmed" lineClamp={2}>
-              {t('admin-AdminPages-UserSettings-security-progress-description')}
+              {t('seller.pages.settings.security.progress.description')}
             </Text>
           </div>
         </Group>
@@ -34,7 +34,7 @@ export function SecuritySummary({ completion, fraction, color, onOpenDetails }) 
         <Group spacing="xs" noWrap>
           {completion !== 100 && (
             <Button size="xs" variant="outline" radius="md" onClick={onOpenDetails}>
-              {t('admin-AdminPages-UserSettings-security-details-button', { defaultValue: 'What to do ?' })}
+              {t('seller.pages.settings.security.detailsButton')}
             </Button>
           )}
           <Badge color={color} variant="light" size="sm">

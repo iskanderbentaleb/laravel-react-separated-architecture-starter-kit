@@ -35,7 +35,7 @@ export default function ForgetPassword() {
   const form = useForm({
     initialValues: { email: '' },
     validate: {
-      email: (value) => (/^\S+@\S+$/.test(value) ? null : t('guest-guestPages-Authentication-email-error')),
+      email: (value) => (/^\S+@\S+$/.test(value) ? null : t('guest.pages.forgot-password.email-error')),
     },
   });
 
@@ -47,7 +47,7 @@ export default function ForgetPassword() {
       
       // success notification
       notifications.show({ 
-        message: t('guest-guestPages-Authentication-forgot-password-success') || 'Password reset link sent to your email!', 
+        message: t('guest.pages.forgot-password.success'), 
         color: 'green' 
       });
       
@@ -58,7 +58,7 @@ export default function ForgetPassword() {
       
     } catch (reason) {
       notifications.show({ 
-        message: reason.response?.data?.message || t('guest-guestPages-Authentication-forgot-password-error') || 'Something went wrong', 
+        message: reason.response?.data?.message || t('guest.pages.forgot-password.error') || 'Something went wrong', 
         color: 'red' 
       });
     } finally {
@@ -76,11 +76,11 @@ export default function ForgetPassword() {
       />
 
       <Title ta="center" mt={'70px'} size="h3">
-        {t('guest-guestPages-Authentication-forgot-password-title') || 'Forgot Password'}
+        {t('guest.pages.forgot-password.title') || 'Forgot Password'}
       </Title>
       
       <Text ta="center" c="dimmed" size="sm" mt="md">
-        {t('guest-guestPages-Authentication-forgot-password-description') || 'Enter your email address and we\'ll send you a link to reset your password'}
+        {t('guest.pages.forgot-password.description') || 'Enter your email address and we\'ll send you a link to reset your password'}
       </Text>
       
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
@@ -88,8 +88,8 @@ export default function ForgetPassword() {
 
           <TextInput
             withAsterisk
-            label={t('guest-guestPages-Authentication-email')}
-            placeholder={t('guest-guestPages-Authentication-email')}
+            label={t('guest.pages.forgot-password.email')}
+            placeholder={t('guest.pages.forgot-password.email')}
             {...form.getInputProps('email')}
             size="sm"
           />
@@ -100,7 +100,7 @@ export default function ForgetPassword() {
             </Button>
             :
             <Button color="themeColor.9" type="submit" mt="xl" fullWidth>
-              {t('guest-guestPages-Authentication-send-reset-link') || 'Send Reset Link'}
+              {t('guest.pages.forgot-password.send-reset-link') || 'Send Reset Link'}
             </Button>
           }
 
@@ -111,7 +111,7 @@ export default function ForgetPassword() {
               gradient={{ from: 'themeColor.4', to: 'themeColor.4' }}
               size="sm"
             >
-              {t('guest-guestPages-Authentication-back-to-login') || 'Back to Login'}
+              {t('guest.pages.forgot-password.back-to-login') || 'Back to Login'}
             </Anchor>
           </Group>
 

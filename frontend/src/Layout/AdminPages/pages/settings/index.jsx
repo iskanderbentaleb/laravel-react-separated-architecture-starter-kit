@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from '../../../../../node_modules/react-i18next';
 import { useForm } from '@mantine/form';
 import { notifications } from '@mantine/notifications';
-import { Container, Paper, Title, Text, Stack, Tabs, Skeleton, useMantineColorScheme } from '@mantine/core';
+import { Container, Paper, Title, Text, Stack, Tabs, Skeleton} from '@mantine/core';
 import { IconCheck, IconShield, IconTrash, IconUser } from '@tabler/icons-react';
 import { useUserContext } from '../../../../context/userContext';
 import { adminApi } from '../../../../Services/Api/admin/adminApi';
@@ -38,8 +38,6 @@ export default function UserSettings() {
   const [twoFactorCode, setTwoFactorCode] = useState('');
   const [twoFactorModalOpened, setTwoFactorModalOpened] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
-  const { colorScheme } = useMantineColorScheme();
-  const isDark = colorScheme === 'dark';
 
   const { t } = useTranslation();
   const tRef = useRef(t);
@@ -56,7 +54,7 @@ export default function UserSettings() {
       phone: '',
     },
     validate: {
-      email: (value) => (/^\S+@\S+\.\S+$/.test(value) ? null : t('admin-AdminPages-UserSettings-validation-email-error')),
+      email: (value) => (/^\S+@\S+\.\S+$/.test(value) ? null : t('admin.pages.settings.validation.emailError')),
     },
   });
 
@@ -72,9 +70,9 @@ export default function UserSettings() {
       confirmPassword: '',
     },
     validate: {
-      newPassword: (value) => (value.length < 8 ? t('admin-AdminPages-UserSettings-validation-password-error') : null),
+      newPassword: (value) => (value.length < 8 ? t('admin.pages.settings.validation.passwordError') : null),
       confirmPassword: (value, values) =>
-        value !== values.newPassword ? t('admin-AdminPages-UserSettings-validation-confirm-password-error') : null,
+        value !== values.newPassword ? t('admin.pages.settings.validation.confirmPasswordError') : null,
     },
   });
 
@@ -117,8 +115,8 @@ export default function UserSettings() {
         setSessions(sessionData.sessions || []);
       } catch (error) {
         notifications.show({
-          title: tRef.current('admin-AdminPages-UserSettings-unable-load-profile-title'),
-          message: error?.response?.data?.message || tRef.current('admin-AdminPages-UserSettings-unable-load-profile-message'),
+          title: tRef.current('admin.pages.settings.unableLoadProfile.title'),
+          message: error?.response?.data?.message || tRef.current('admin.pages.settings.unableLoadProfile.message'),
           color: 'red',
           radius: 'md',
         });
@@ -145,7 +143,7 @@ export default function UserSettings() {
 
   const formatSessionLastActive = (value) => {
     if (!value) {
-      return t('admin-AdminPages-UserSettings-session-unknown');
+      return t('admin.pages.settings.activeSessions.unknown');
     }
 
     const date = typeof value === 'number' ? new Date(value * 1000) : new Date(value);
@@ -165,7 +163,7 @@ export default function UserSettings() {
 
   const simplifyUserAgent = (userAgent) => {
     if (!userAgent) {
-      return t('admin-AdminPages-UserSettings-unknown-device');
+      return t('admin.pages.settings.activeSessions.unknownDevice');
     }
 
     const normalized = userAgent.replace(/\s+/g, ' ');
@@ -220,8 +218,8 @@ export default function UserSettings() {
   const handleUpdateProfile = async (values) => {
     if (!profileHasChanges) {
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-no-changes-title'),
-        message: t('admin-AdminPages-UserSettings-no-changes-message'),
+        title: t('admin.pages.settings.messages.noChanges.title'),
+        message: t('admin.pages.settings.messages.noChanges.message'),
         color: 'blue',
         radius: 'md',
       });
@@ -255,16 +253,16 @@ export default function UserSettings() {
       setAvatarFile(null);
 
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-profile-updated-title'),
-        message: t('admin-AdminPages-UserSettings-profile-updated-message'),
+        title: t('admin.pages.settings.messages.profileUpdated.title'),
+        message: t('admin.pages.settings.messages.profileUpdated.message'),
         color: 'green',
         icon: <IconCheck size={16} />,
         radius: 'md',
       });
     } catch (error) {
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-unable-update-profile-title'),
-        message: error?.response?.data?.message || t('admin-AdminPages-UserSettings-unable-update-profile-message'),
+        title: t('admin.pages.settings.messages.unableUpdateProfile.title'),
+        message: error?.response?.data?.message || t('admin.pages.settings.messages.unableUpdateProfile.message'),
         color: 'red',
         radius: 'md',
       });
@@ -279,8 +277,8 @@ export default function UserSettings() {
     try {
       await adminApi.changePassword(passwordForm.values);
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-password-changed-title'),
-        message: t('admin-AdminPages-UserSettings-password-changed-message'),
+        title: t('admin.pages.settings.messages.passwordChanged.title'),
+        message: t('admin.pages.settings.messages.passwordChanged.message'),
         color: 'green',
         icon: <IconCheck size={16} />,
         radius: 'md',
@@ -288,8 +286,8 @@ export default function UserSettings() {
       passwordForm.reset();
     } catch (error) {
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-unable-change-password-title'),
-        message: error?.response?.data?.message || t('admin-AdminPages-UserSettings-unable-change-password-message'),
+        title: t('admin.pages.settings.messages.unableChangePassword.title'),
+        message: error?.response?.data?.message || t('admin.pages.settings.messages.unableChangePassword.message'),
         color: 'red',
         radius: 'md',
       });
@@ -310,8 +308,8 @@ export default function UserSettings() {
         if (enabled) {
           setTwoFactorModalOpened(true);
           notifications.show({
-            title: t('admin-AdminPages-UserSettings-verification-sent-title'),
-            message: t('admin-AdminPages-UserSettings-two-factor-verification-sent-message'),
+            title: t('admin.pages.settings.messages.twoFactorVerificationSent.title'),
+            message: t('admin.pages.settings.messages.twoFactorVerificationSent.message'),
             color: 'green',
             icon: <IconCheck size={16} />,
             radius: 'md',
@@ -320,7 +318,8 @@ export default function UserSettings() {
           setTwoFactorModalOpened(false);
           setTwoFactorCode('');
           notifications.show({
-            title: data.message,
+            title: t('admin.pages.settings.messages.twoFactorDisabled.title'),
+            message: t('admin.pages.settings.messages.twoFactorDisabled.message'),
             color: 'green',
             icon: <IconCheck size={16} />,
             radius: 'md',
@@ -328,8 +327,8 @@ export default function UserSettings() {
         }
       } catch (error) {
         notifications.show({
-          title: t('admin-AdminPages-UserSettings-unable-update-2fa-title'),
-          message: error?.response?.data?.message || t('admin-AdminPages-UserSettings-unable-update-2fa-message'),
+          title: t('admin.pages.settings.messages.unableUpdateTwoFactor.title'),
+          message: error?.response?.data?.message || t('admin.pages.settings.messages.unableUpdateTwoFactor.message'),
           color: 'red',
           radius: 'md',
         });
@@ -355,16 +354,16 @@ export default function UserSettings() {
       setTwoFactorCode('');
 
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-two-factor-enabled-title'),
-        message: t('admin-AdminPages-UserSettings-two-factor-enabled-message'),
+        title: t('admin.pages.settings.messages.twoFactorEnabled.title'),
+        message: t('admin.pages.settings.messages.twoFactorEnabled.message'),
         color: 'green',
         icon: <IconCheck size={16} />,
         radius: 'md',
       });
     } catch (error) {
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-invalid-code-title'),
-        message: error?.response?.data?.message || t('admin-AdminPages-UserSettings-invalid-code-message'),
+        title: t('admin.pages.settings.messages.invalidTwoFactorCode.title'),
+        message: error?.response?.data?.message || t('admin.pages.settings.messages.invalidTwoFactorCode.message'),
         color: 'red',
         radius: 'md',
       });
@@ -383,15 +382,15 @@ export default function UserSettings() {
       setTwoFactorModalOpened(false);
       setTwoFactorCode('');
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-two-factor-cancelled-title'),
-        message: t('admin-AdminPages-UserSettings-two-factor-cancelled-message'),
+        title: t('admin.pages.settings.messages.twoFactorCancelled.title'),
+        message: t('admin.pages.settings.messages.twoFactorCancelled.message'),
         color: 'gray',
         radius: 'md',
       });
     } catch (error) {
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-unable-cancel-2fa-title'),
-        message: error?.response?.data?.message || t('admin-AdminPages-UserSettings-unable-cancel-2fa-message'),
+        title: t('admin.pages.settings.messages.unableCancelTwoFactor.title'),
+        message: error?.response?.data?.message || t('admin.pages.settings.messages.unableCancelTwoFactor.message'),
         color: 'red',
         radius: 'md',
       });
@@ -408,8 +407,8 @@ export default function UserSettings() {
       const { data } = await adminApi.getSessions();
       setSessions(data.sessions || []);
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-logged-out-title'),
-        message: t('admin-AdminPages-UserSettings-logged-out-message'),
+        title: t('admin.pages.settings.messages.loggedOut.title'),
+        message: t('admin.pages.settings.messages.loggedOut.message'),
         color: 'green',
         icon: <IconCheck size={16} />,
         radius: 'md',
@@ -417,8 +416,8 @@ export default function UserSettings() {
       setLogoutModalOpened(false);
     } catch (error) {
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-unable-logout-title'),
-        message: error?.response?.data?.message || t('admin-AdminPages-UserSettings-unable-logout-message'),
+        title: t('admin.pages.settings.messages.unableLogout.title'),
+        message: error?.response?.data?.message || t('admin.pages.settings.messages.unableLogout.message'),
         color: 'red',
         radius: 'md',
       });
@@ -433,16 +432,16 @@ export default function UserSettings() {
     try {
       await adminApi.sendEmailVerification();
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-verification-sent-title'),
-        message: t('admin-AdminPages-UserSettings-verification-email-sent-message'),
+        title: t('admin.pages.settings.messages.verificationSent.title'),
+        message: t('admin.pages.settings.messages.verificationSent.message'),
         color: 'green',
         icon: <IconCheck size={16} />,
         radius: 'md',
       });
     } catch (error) {
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-unable-send-verification-title'),
-        message: error?.response?.data?.message || t('admin-AdminPages-UserSettings-unable-send-verification-message'),
+        title: t('admin.pages.settings.messages.unableSendVerification.title'),
+        message: error?.response?.data?.message || t('admin.pages.settings.messages.unableSendVerification.message'),
         color: 'red',
         radius: 'md',
       });
@@ -457,8 +456,8 @@ export default function UserSettings() {
     try {
       await adminApi.deleteAccount({ password: deletePassword });
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-account-deleted-title'),
-        message: t('admin-AdminPages-UserSettings-account-deleted-message'),
+        title: t('admin.pages.settings.messages.accountDeleted.title'),
+        message: t('admin.pages.settings.messages.accountDeleted.message'),
         color: 'red',
         icon: <IconTrash size={16} />,
         radius: 'md',
@@ -469,8 +468,8 @@ export default function UserSettings() {
       }, 1200);
     } catch (error) {
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-unable-delete-account-title'),
-        message: error?.response?.data?.message || t('admin-AdminPages-UserSettings-unable-delete-account-message'),
+        title: t('admin.pages.settings.messages.unableDeleteAccount.title'),
+        message: error?.response?.data?.message || t('admin.pages.settings.messages.unableDeleteAccount.message'),
         color: 'red',
         radius: 'md',
       });
@@ -483,20 +482,20 @@ export default function UserSettings() {
     return [
       {
         key: 'verify-email',
-        title: t('admin-AdminPages-UserSettings-security-step-verify-email-title'),
-        description: t('admin-AdminPages-UserSettings-security-step-verify-email-description'),
+        title: t('admin.pages.settings.security.steps.verifyEmail.title'),
+        description: t('admin.pages.settings.security.steps.verifyEmail.description'),
         completed: Boolean(userData?.email_verified_at),
       },
       {
         key: 'enable-2fa',
-        title: t('admin-AdminPages-UserSettings-security-step-2fa-title'),
-        description: t('admin-AdminPages-UserSettings-security-step-2fa-description'),
+        title: t('admin.pages.settings.security.steps.twoFactor.title'),
+        description: t('admin.pages.settings.security.steps.twoFactor.description'),
         completed: Boolean(userData?.two_factor_enabled),
       },
       {
         key: 'complete-profile',
-        title: t('admin-AdminPages-UserSettings-security-step-complete-profile-title'),
-        description: t('admin-AdminPages-UserSettings-security-step-complete-profile-description'),
+        title: t('admin.pages.settings.security.steps.completeProfile.title'),
+        description: t('admin.pages.settings.security.steps.completeProfile.description'),
         completed: Boolean(userData?.name && userData?.email),
       },
     ];
@@ -559,7 +558,7 @@ export default function UserSettings() {
   }
 
   return (
-    <Container fluid  >
+    <Container fluid>
       <div style={{ marginBottom: '32px' }}>
         <Title
           order={2}
@@ -569,10 +568,10 @@ export default function UserSettings() {
             marginBottom: '8px',
           }}
         >
-          {t('admin-AdminPages-UserSettings-title')}
+          {t('admin.pages.settings.title')}
         </Title>
         <Text c="dimmed" size="sm">
-          {t('admin-AdminPages-UserSettings-description')}
+          {t('admin.pages.settings.description')}
         </Text>
       </div>
 
@@ -619,13 +618,14 @@ export default function UserSettings() {
           }}
         >
           <Tabs.Tab value="profile" leftSection={<IconUser size={18} />}>
-            {t('admin-AdminPages-UserSettings-tab-profile')}
+            {t('admin.pages.settings.tabs.profile')}
           </Tabs.Tab>
           <Tabs.Tab value="security" leftSection={<IconShield size={18} />}>
-            {t('admin-AdminPages-UserSettings-tab-security')}
+            {t('admin.pages.settings.tabs.security')}
           </Tabs.Tab>
         </Tabs.List>
 
+        {/* Profile Tab */}
         <Tabs.Panel value="profile">
           <ProfilePanel
             userData={userData}
@@ -646,6 +646,7 @@ export default function UserSettings() {
           />
         </Tabs.Panel>
 
+        {/* Security Tab */}
         <Tabs.Panel value="security">
           <SecurityPanel
             userData={userData}

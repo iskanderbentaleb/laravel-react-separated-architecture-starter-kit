@@ -1,5 +1,4 @@
 import { Button, Group, PasswordInput, Stack } from '@mantine/core';
-import { IconCheck } from '@tabler/icons-react';
 import { useTranslation } from '../../../../../../node_modules/react-i18next';
 
 export function PasswordCard({ passwordForm, passwordLoading, passwordFormValid, onSubmit }) {
@@ -9,24 +8,24 @@ export function PasswordCard({ passwordForm, passwordLoading, passwordFormValid,
     <form onSubmit={passwordForm.onSubmit(onSubmit)}>
       <Stack gap="md">
         <PasswordInput
-          label={t('admin-AdminPages-UserSettings-current-password')}
-          placeholder={t('admin-AdminPages-UserSettings-enter-current-password')}
+          label={t('seller.pages.settings.changePassword.currentPassword.label')}
+          placeholder={t('seller.pages.settings.changePassword.currentPassword.placeholder')}
           required
           size="sm"
           radius="md"
           {...passwordForm.getInputProps('currentPassword')}
         />
         <PasswordInput
-          label={t('admin-AdminPages-UserSettings-new-password')}
-          placeholder={t('admin-AdminPages-UserSettings-enter-new-password')}
+          label={t('seller.pages.settings.changePassword.newPassword.label')}
+          placeholder={t('seller.pages.settings.changePassword.newPassword.placeholder')}
           required
           size="sm"
           radius="md"
           {...passwordForm.getInputProps('newPassword')}
         />
         <PasswordInput
-          label={t('admin-AdminPages-UserSettings-confirm-new-password')}
-          placeholder={t('admin-AdminPages-UserSettings-confirm-new-password-placeholder')}
+          label={t('seller.pages.settings.changePassword.confirmNewPassword.label')}
+          placeholder={t('seller.pages.settings.changePassword.confirmNewPassword.placeholder')}
           required
           size="sm"
           radius="md"
@@ -34,7 +33,7 @@ export function PasswordCard({ passwordForm, passwordLoading, passwordFormValid,
         />
         <Group justify="flex-end">
           <Button type="submit" color="blue" radius="md" loading={passwordLoading} disabled={!passwordFormValid || passwordLoading}>
-            {t('admin-AdminPages-UserSettings-update-password')}
+            {t('seller.pages.settings.changePassword.updateButton')}
           </Button>
         </Group>
       </Stack>

@@ -49,7 +49,7 @@ export function SecurityPanel({
             <IconLock size={20} />
           </ThemeIcon>
           <Title order={3} size="h4">
-            {t('admin-AdminPages-UserSettings-change-password-title')}
+            {t('admin.pages.settings.changePassword.title')}
           </Title>
         </Group>
         <PasswordCard
@@ -73,10 +73,10 @@ export function SecurityPanel({
             </ThemeIcon>
             <div>
               <Title order={3} size="h4">
-                {t('admin-AdminPages-UserSettings-two-factor-title')}
+                {t('admin.pages.settings.twoFactor.title')}
               </Title>
               <Text size="sm" c="dimmed">
-                {t('admin-AdminPages-UserSettings-two-factor-description')}
+                {t('admin.pages.settings.twoFactor.description')}
               </Text>
             </div>
           </Group>
@@ -91,13 +91,13 @@ export function SecurityPanel({
 
         {twoFactorPending && (
           <Alert color="yellow" icon={<IconRefresh size={16} />} radius="md" mt="md">
-            {t('admin-AdminPages-UserSettings-two-factor-pending-message')}
+            {t('admin.pages.settings.twoFactor.pendingMessage')}
           </Alert>
         )}
 
         {!userData.email_verified_at && (
           <Alert color="blue" icon={<IconShield size={16} />} radius="md" mt="md">
-            {t('admin-AdminPages-UserSettings-verify-email-before-2fa')}
+            {t('admin.pages.settings.twoFactor.verifyEmailBefore')}
           </Alert>
         )}
       </Paper>
@@ -114,7 +114,7 @@ export function SecurityPanel({
               <IconDeviceLaptop size={20} />
             </ThemeIcon>
             <Title order={3} size="h4">
-              {t('admin-AdminPages-UserSettings-active-sessions-title')}
+              {t('admin.pages.settings.activeSessions.title')}
             </Title>
           </Group>
           <Button
@@ -126,7 +126,7 @@ export function SecurityPanel({
             loading={logoutLoading}
             disabled={!canLogoutAllDevices}
           >
-            {t('admin-AdminPages-UserSettings-logout-all')}
+            {t('admin.pages.settings.activeSessions.logoutAll')}
           </Button>
         </Group>
 
@@ -142,7 +142,7 @@ export function SecurityPanel({
             ))
           ) : (
             <Text c="dimmed" size="sm">
-              {t('admin-AdminPages-UserSettings-no-active-sessions')}
+              {t('admin.pages.settings.activeSessions.noActiveSessions')}
             </Text>
           )}
         </Stack>
@@ -163,21 +163,21 @@ export function SecurityPanel({
             <IconTrash size={20} />
           </ThemeIcon>
           <Title order={3} size="h4" c="red">
-            {t('admin-AdminPages-UserSettings-danger-zone-title')}
+            {t('admin.pages.settings.dangerZone.title')}
           </Title>
         </Group>
         <Card withBorder p="md" radius="md">
           <Group justify="space-between">
             <div>
               <Text fw={600} size="sm">
-                {t('admin-AdminPages-UserSettings-delete-account')}
+                {t('admin.pages.settings.dangerZone.deleteAccount.title')}
               </Text>
               <Text size="sm" c="dimmed">
-                {t('admin-AdminPages-UserSettings-delete-account-description')}
+                {t('admin.pages.settings.dangerZone.deleteAccount.description')}
               </Text>
             </div>
             <Button color="red" onClick={() => setDeleteModalOpened(true)} variant="light" radius="md">
-              {t('admin-AdminPages-UserSettings-delete-account')}
+              {t('admin.pages.settings.dangerZone.deleteAccount.title')}
             </Button>
           </Group>
         </Card>

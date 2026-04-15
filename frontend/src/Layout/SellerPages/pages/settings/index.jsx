@@ -54,7 +54,7 @@ export default function UserSettings() {
       phone: '',
     },
     validate: {
-      email: (value) => (/^\S+@\S+\.\S+$/.test(value) ? null : t('admin-AdminPages-UserSettings-validation-email-error')),
+      email: (value) => (/^\S+@\S+\.\S+$/.test(value) ? null : t('seller.pages.settings.validation.emailError')),
     },
   });
 
@@ -70,13 +70,13 @@ export default function UserSettings() {
       confirmPassword: '',
     },
     validate: {
-      newPassword: (value) => (value.length < 8 ? t('admin-AdminPages-UserSettings-validation-password-error') : null),
+      newPassword: (value) => (value.length < 8 ? t('seller.pages.settings.validation.passwordError') : null),
       confirmPassword: (value, values) =>
-        value !== values.newPassword ? t('admin-AdminPages-UserSettings-validation-confirm-password-error') : null,
+        value !== values.newPassword ? t('seller.pages.settings.validation.confirmPasswordError') : null,
     },
   });
 
-  const LOCAL_STORAGE_TAB_KEY = 'adminUserSettingsActiveTab';
+  const LOCAL_STORAGE_TAB_KEY = 'sellerUserSettingsActiveTab';
 
   useEffect(() => {
     const savedTab = localStorage.getItem(LOCAL_STORAGE_TAB_KEY);
@@ -115,8 +115,8 @@ export default function UserSettings() {
         setSessions(sessionData.sessions || []);
       } catch (error) {
         notifications.show({
-          title: tRef.current('admin-AdminPages-UserSettings-unable-load-profile-title'),
-          message: error?.response?.data?.message || tRef.current('admin-AdminPages-UserSettings-unable-load-profile-message'),
+          title: tRef.current('seller.pages.settings.unableLoadProfile.title'),
+          message: error?.response?.data?.message || tRef.current('seller.pages.settings.unableLoadProfile.message'),
           color: 'red',
           radius: 'md',
         });
@@ -143,7 +143,7 @@ export default function UserSettings() {
 
   const formatSessionLastActive = (value) => {
     if (!value) {
-      return t('admin-AdminPages-UserSettings-session-unknown');
+      return t('seller.pages.settings.activeSessions.unknown');
     }
 
     const date = typeof value === 'number' ? new Date(value * 1000) : new Date(value);
@@ -163,7 +163,7 @@ export default function UserSettings() {
 
   const simplifyUserAgent = (userAgent) => {
     if (!userAgent) {
-      return t('admin-AdminPages-UserSettings-unknown-device');
+      return t('seller.pages.settings.activeSessions.unknownDevice');
     }
 
     const normalized = userAgent.replace(/\s+/g, ' ');
@@ -218,8 +218,8 @@ export default function UserSettings() {
   const handleUpdateProfile = async (values) => {
     if (!profileHasChanges) {
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-no-changes-title'),
-        message: t('admin-AdminPages-UserSettings-no-changes-message'),
+        title: t('seller.pages.settings.messages.noChanges.title'),
+        message: t('seller.pages.settings.messages.noChanges.message'),
         color: 'blue',
         radius: 'md',
       });
@@ -253,16 +253,16 @@ export default function UserSettings() {
       setAvatarFile(null);
 
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-profile-updated-title'),
-        message: t('admin-AdminPages-UserSettings-profile-updated-message'),
+        title: t('seller.pages.settings.messages.profileUpdated.title'),
+        message: t('seller.pages.settings.messages.profileUpdated.message'),
         color: 'green',
         icon: <IconCheck size={16} />,
         radius: 'md',
       });
     } catch (error) {
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-unable-update-profile-title'),
-        message: error?.response?.data?.message || t('admin-AdminPages-UserSettings-unable-update-profile-message'),
+        title: t('seller.pages.settings.messages.unableUpdateProfile.title'),
+        message: error?.response?.data?.message || t('seller.pages.settings.messages.unableUpdateProfile.message'),
         color: 'red',
         radius: 'md',
       });
@@ -277,8 +277,8 @@ export default function UserSettings() {
     try {
       await sellerApi.changePassword(passwordForm.values);
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-password-changed-title'),
-        message: t('admin-AdminPages-UserSettings-password-changed-message'),
+        title: t('seller.pages.settings.messages.passwordChanged.title'),
+        message: t('seller.pages.settings.messages.passwordChanged.message'),
         color: 'green',
         icon: <IconCheck size={16} />,
         radius: 'md',
@@ -286,8 +286,8 @@ export default function UserSettings() {
       passwordForm.reset();
     } catch (error) {
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-unable-change-password-title'),
-        message: error?.response?.data?.message || t('admin-AdminPages-UserSettings-unable-change-password-message'),
+        title: t('seller.pages.settings.messages.unableChangePassword.title'),
+        message: error?.response?.data?.message || t('seller.pages.settings.messages.unableChangePassword.message'),
         color: 'red',
         radius: 'md',
       });
@@ -308,8 +308,8 @@ export default function UserSettings() {
         if (enabled) {
           setTwoFactorModalOpened(true);
           notifications.show({
-            title: t('admin-AdminPages-UserSettings-verification-sent-title'),
-            message: t('admin-AdminPages-UserSettings-two-factor-verification-sent-message'),
+            title: t('seller.pages.settings.messages.twoFactorVerificationSent.title'),
+            message: t('seller.pages.settings.messages.twoFactorVerificationSent.message'),
             color: 'green',
             icon: <IconCheck size={16} />,
             radius: 'md',
@@ -326,8 +326,8 @@ export default function UserSettings() {
         }
       } catch (error) {
         notifications.show({
-          title: t('admin-AdminPages-UserSettings-unable-update-2fa-title'),
-          message: error?.response?.data?.message || t('admin-AdminPages-UserSettings-unable-update-2fa-message'),
+          title: t('seller.pages.settings.messages.unableUpdateTwoFactor.title'),
+          message: error?.response?.data?.message || t('seller.pages.settings.messages.unableUpdateTwoFactor.message'),
           color: 'red',
           radius: 'md',
         });
@@ -353,16 +353,16 @@ export default function UserSettings() {
       setTwoFactorCode('');
 
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-two-factor-enabled-title'),
-        message: t('admin-AdminPages-UserSettings-two-factor-enabled-message'),
+        title: t('seller.pages.settings.messages.twoFactorEnabled.title'),
+        message: t('seller.pages.settings.messages.twoFactorEnabled.message'),
         color: 'green',
         icon: <IconCheck size={16} />,
         radius: 'md',
       });
     } catch (error) {
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-invalid-code-title'),
-        message: error?.response?.data?.message || t('admin-AdminPages-UserSettings-invalid-code-message'),
+        title: t('seller.pages.settings.messages.invalidCode.title'),
+        message: error?.response?.data?.message || t('seller.pages.settings.messages.invalidCode.message'),
         color: 'red',
         radius: 'md',
       });
@@ -381,15 +381,15 @@ export default function UserSettings() {
       setTwoFactorModalOpened(false);
       setTwoFactorCode('');
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-two-factor-cancelled-title'),
-        message: t('admin-AdminPages-UserSettings-two-factor-cancelled-message'),
+        title: t('seller.pages.settings.messages.twoFactorCancelled.title'),
+        message: t('seller.pages.settings.messages.twoFactorCancelled.message'),
         color: 'gray',
         radius: 'md',
       });
     } catch (error) {
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-unable-cancel-2fa-title'),
-        message: error?.response?.data?.message || t('admin-AdminPages-UserSettings-unable-cancel-2fa-message'),
+        title: t('seller.pages.settings.messages.unableCancelTwoFactor.title'),
+        message: error?.response?.data?.message || t('seller.pages.settings.messages.unableCancelTwoFactor.message'),
         color: 'red',
         radius: 'md',
       });
@@ -406,8 +406,8 @@ export default function UserSettings() {
       const { data } = await sellerApi.getSessions();
       setSessions(data.sessions || []);
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-logged-out-title'),
-        message: t('admin-AdminPages-UserSettings-logged-out-message'),
+        title: t('seller.pages.settings.messages.loggedOut.title'),
+        message: t('seller.pages.settings.messages.loggedOut.message'),
         color: 'green',
         icon: <IconCheck size={16} />,
         radius: 'md',
@@ -415,8 +415,8 @@ export default function UserSettings() {
       setLogoutModalOpened(false);
     } catch (error) {
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-unable-logout-title'),
-        message: error?.response?.data?.message || t('admin-AdminPages-UserSettings-unable-logout-message'),
+        title: t('seller.pages.settings.messages.unableLogout.title'),
+        message: error?.response?.data?.message || t('seller.pages.settings.messages.unableLogout.message'),
         color: 'red',
         radius: 'md',
       });
@@ -431,16 +431,16 @@ export default function UserSettings() {
     try {
       await sellerApi.sendEmailVerification();
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-verification-sent-title'),
-        message: t('admin-AdminPages-UserSettings-verification-email-sent-message'),
+        title: t('seller.pages.settings.messages.verificationSent.title'),
+        message: t('seller.pages.settings.messages.verificationSent.message'),
         color: 'green',
         icon: <IconCheck size={16} />,
         radius: 'md',
       });
     } catch (error) {
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-unable-send-verification-title'),
-        message: error?.response?.data?.message || t('admin-AdminPages-UserSettings-unable-send-verification-message'),
+        title: t('seller.pages.settings.messages.unableSendVerification.title'),
+        message: error?.response?.data?.message || t('seller.pages.settings.messages.unableSendVerification.message'),
         color: 'red',
         radius: 'md',
       });
@@ -455,8 +455,8 @@ export default function UserSettings() {
     try {
       await sellerApi.deleteAccount({ password: deletePassword });
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-account-deleted-title'),
-        message: t('admin-AdminPages-UserSettings-account-deleted-message'),
+        title: t('seller.pages.settings.messages.accountDeleted.title'),
+        message: t('seller.pages.settings.messages.accountDeleted.message'),
         color: 'red',
         icon: <IconTrash size={16} />,
         radius: 'md',
@@ -467,8 +467,8 @@ export default function UserSettings() {
       }, 1200);
     } catch (error) {
       notifications.show({
-        title: t('admin-AdminPages-UserSettings-unable-delete-account-title'),
-        message: error?.response?.data?.message || t('admin-AdminPages-UserSettings-unable-delete-account-message'),
+        title: t('seller.pages.settings.messages.unableDeleteAccount.title'),
+        message: error?.response?.data?.message || t('seller.pages.settings.messages.unableDeleteAccount.message'),
         color: 'red',
         radius: 'md',
       });
@@ -481,20 +481,20 @@ export default function UserSettings() {
     return [
       {
         key: 'verify-email',
-        title: t('admin-AdminPages-UserSettings-security-step-verify-email-title'),
-        description: t('admin-AdminPages-UserSettings-security-step-verify-email-description'),
+        title: t('seller.pages.settings.security.steps.verifyEmail.title'),
+        description: t('seller.pages.settings.security.steps.verifyEmail.description'),
         completed: Boolean(userData?.email_verified_at),
       },
       {
         key: 'enable-2fa',
-        title: t('admin-AdminPages-UserSettings-security-step-2fa-title'),
-        description: t('admin-AdminPages-UserSettings-security-step-2fa-description'),
+        title: t('seller.pages.settings.security.steps.twoFactor.title'),
+        description: t('seller.pages.settings.security.steps.twoFactor.description'),
         completed: Boolean(userData?.two_factor_enabled),
       },
       {
         key: 'complete-profile',
-        title: t('admin-AdminPages-UserSettings-security-step-complete-profile-title'),
-        description: t('admin-AdminPages-UserSettings-security-step-complete-profile-description'),
+        title: t('seller.pages.settings.security.steps.completeProfile.title'),
+        description: t('seller.pages.settings.security.steps.completeProfile.description'),
         completed: Boolean(userData?.name && userData?.email),
       },
     ];
@@ -550,7 +550,7 @@ export default function UserSettings() {
   if (!userData) {
     return (
       <Container fluid h="100%">
-        <Text c="dimmed">{t('admin-AdminPages-UserSettings-unable-load-settings')}</Text>
+        <Text c="dimmed">{t('seller.pages.settings.errors.unableLoadSettings')}</Text>
       </Container>
     );
   }
@@ -566,10 +566,10 @@ export default function UserSettings() {
             marginBottom: '8px',
           }}
         >
-          {t('admin-AdminPages-UserSettings-title')}
+          {t('seller.pages.settings.title')}
         </Title>
         <Text c="dimmed" size="sm">
-          {t('admin-AdminPages-UserSettings-description')}
+          {t('seller.pages.settings.description')}
         </Text>
       </div>
 
@@ -616,10 +616,10 @@ export default function UserSettings() {
           }}
         >
           <Tabs.Tab value="profile" leftSection={<IconUser size={18} />}>
-            {t('admin-AdminPages-UserSettings-tab-profile')}
+            {t('seller.pages.settings.tabs.profile')}
           </Tabs.Tab>
           <Tabs.Tab value="security" leftSection={<IconShield size={18} />}>
-            {t('admin-AdminPages-UserSettings-tab-security')}
+            {t('seller.pages.settings.tabs.security')}
           </Tabs.Tab>
         </Tabs.List>
 

@@ -42,11 +42,11 @@ export default function RegisterPage() {
       password_confirmation: '' 
     },
     validate: {
-      name: (value) => (value.length < 2 ? t('guest-guestPages-Register-name-error') : null),
-      email: (value) => (/^\S+@\S+$/.test(value) ? null : t('guest-guestPages-Register-email-error')),
-      password: (value) => (value.length < 8 ? t('guest-guestPages-Register-password-error') : null),
+      name: (value) => (value.length < 2 ? t('guest.pages.register.name-error') : null),
+      email: (value) => (/^\S+@\S+$/.test(value) ? null : t('guest.pages.register.email-error')),
+      password: (value) => (value.length < 8 ? t('guest.pages.register.password-error') : null),
       password_confirmation: (value, values) => 
-        value !== values.password ? t('guest-guestPages-Register-password-confirmation-error') : null,
+        value !== values.password ? t('guest.pages.register.password-confirmation-error') : null,
     },
   });
 
@@ -54,13 +54,13 @@ export default function RegisterPage() {
 
   const handleError = (errors) => {
     if (errors.name) {
-      notifications.show({ message: t('guest-guestPages-Register-name-error-toast'), color: 'red' });
+      notifications.show({ message: t('guest.pages.register.name-error-toast'), color: 'red' });
     } else if (errors.email) {
-      notifications.show({ message: t('guest-guestPages-Register-email-error-toast'), color: 'red' });
+      notifications.show({ message: t('guest.pages.register.email-error-toast'), color: 'red' });
     } else if (errors.password) {
-      notifications.show({ message: t('guest-guestPages-Register-password-error-toast'), color: 'red' });
+      notifications.show({ message: t('guest.pages.register.password-error-toast'), color: 'red' });
     } else if (errors.password_confirmation) {
-      notifications.show({ message: t('guest-guestPages-Register-password-confirmation-error-toast'), color: 'red' });
+      notifications.show({ message: t('guest.pages.register.password-confirmation-error-toast'), color: 'red' });
     }
   };
 
@@ -79,7 +79,7 @@ export default function RegisterPage() {
 
         // Show success notification
         notifications.show({ 
-          message: t('guest-guestPages-Register-success-toast'), 
+          message: t('guest.pages.register.success-toast'), 
           color: 'green' 
         });
 
@@ -102,10 +102,10 @@ export default function RegisterPage() {
         } else if (errors.password_confirmation) {
           notifications.show({ message: errors.password_confirmation[0], color: 'red' });
         } else {
-          notifications.show({ message: reason.response.data.message || t('guest-guestPages-Register-error-toast'), color: 'red' });
+          notifications.show({ message: reason.response.data.message || t('guest.pages.register.error-toast'), color: 'red' });
         }
       } else {
-        notifications.show({ message: reason.response?.data?.message || t('guest-guestPages-Register-error-toast'), color: 'red' });
+        notifications.show({ message: reason.response?.data?.message || t('guest.pages.register.error-toast'), color: 'red' });
       }
     } finally {
       setIsLoading(false); // Reset loading state after request completes
@@ -132,38 +132,38 @@ export default function RegisterPage() {
 
 
       <Title ta="center" mt={'70px'} size="h3">
-        {t('guest-guestPages-Register-welcome')}
+        {t('guest.pages.register.welcome')}
       </Title>
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
         <form onSubmit={form.onSubmit(handleSubmit, handleError)}>
 
           <TextInput
             withAsterisk
-            label={t('guest-guestPages-Register-name')}
-            placeholder={t('guest-guestPages-Register-name')}
+            label={t('guest.pages.register.name')}
+            placeholder={t('guest.pages.register.name')}
             {...form.getInputProps('name')}
           />
 
           <TextInput
             withAsterisk
             mt="sm"
-            label={t('guest-guestPages-Register-email')}
-            placeholder={t('guest-guestPages-Register-email')}
+            label={t('guest.pages.register.email')}
+            placeholder={t('guest.pages.register.email')}
             {...form.getInputProps('email')}
           />
 
           <PasswordInput
             withAsterisk
-            label={t('guest-guestPages-Register-password')}
-            placeholder={t('guest-guestPages-Register-password')}
+            label={t('guest.pages.register.password')}
+            placeholder={t('guest.pages.register.password')}
             {...form.getInputProps('password')}
             mt="md"
           />
 
           <PasswordInput
             withAsterisk
-            label={t('guest-guestPages-Register-password-confirmation')}
-            placeholder={t('guest-guestPages-Register-password-confirmation')}
+            label={t('guest.pages.register.password-confirmation')}
+            placeholder={t('guest.pages.register.password-confirmation')}
             {...form.getInputProps('password_confirmation')}
             mt="md"
           />
@@ -174,7 +174,7 @@ export default function RegisterPage() {
             </Button>
             :
             <Button color="themeColor.9" type="submit" mt="xl" fullWidth>
-              {t('guest-guestPages-Register-submit')}
+              {t('guest.pages.register.submit')}
             </Button>
           }
 
@@ -183,7 +183,7 @@ export default function RegisterPage() {
               onClick={() => navigate(LOGIN_ROUTE)}
               variant="gradient"
               gradient={{ from: 'themeColor.4', to: 'themeColor.4' }}
-              size="sm">{t('guest-guestPages-Register-login')}
+              size="sm">{t('guest.pages.register.login')}
             </Anchor>
           </Group>
 

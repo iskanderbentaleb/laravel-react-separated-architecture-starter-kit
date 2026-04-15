@@ -44,14 +44,14 @@ export default function VerifyEmail() {
     } catch (error) {
       if (error?.response?.status === 401) {
         notifications.show({
-          message: t('guest-guestPages-verifyEmail-signin-error'),
+          message: t('guest.pages.verifyEmail.signin-error'),
           color: 'yellow',
         });
         navigate(LOGIN_ROUTE);
         return;
       }
       notifications.show({
-        message: error?.response?.data?.message || t('guest-guestPages-verifyEmail-load-error'),
+        message: error?.response?.data?.message || t('guest.pages.verifyEmail.load-error'),
         color: 'red',
       });
     } finally {
@@ -75,13 +75,13 @@ export default function VerifyEmail() {
       }
 
       notifications.show({
-        message: t('guest-guestPages-verifyEmail-send-success'),
+        message: t('guest.pages.verifyEmail.send-success'),
         color: 'green',
       });
 
     } catch (error) {
       notifications.show({
-        message: error?.response?.data?.message || t('guest-guestPages-verifyEmail-send-error'),
+        message: error?.response?.data?.message || t('guest.pages.verifyEmail.send-error'),
         color: 'red',
       });
     } finally {
@@ -102,19 +102,19 @@ export default function VerifyEmail() {
 
       if (data.user.email_verified_at) {
         notifications.show({
-          message: t('guest-guestPages-verifyEmail-verify-success'),
+          message: t('guest.pages.verifyEmail.verify-success'),
           color: 'green',
         });
         navigate(ADMIN_DASHBOARD_ROUTE);
       } else {
         notifications.show({
-          message: t('guest-guestPages-verifyEmail-not-verified'),
+          message: t('guest.pages.verifyEmail.not-verified'),
           color: 'yellow',
         });
       }
     } catch (error) {
       notifications.show({
-        message: error?.response?.data?.message || t('guest-guestPages-verifyEmail-check-error'),
+        message: error?.response?.data?.message || t('guest.pages.verifyEmail.check-error'),
         color: 'red',
       });
     } finally {
@@ -149,13 +149,13 @@ export default function VerifyEmail() {
       />
 
       <Title ta="center" mt={'70px'} size="h3"> 
-        {t('guest-guestPages-verifyEmail-title')}
+        {t('guest.pages.verifyEmail.title')}
       </Title>
 
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
         <Stack spacing="xl">
           {/* Email Information Card */}
-          <Card withBorder radius="md" p="lg" bg="gray.0">
+          <Card withBorder radius="md" p="lg">
             <Group justify="space-between" align="center" wrap="nowrap">
               <Group gap="md">
                 <ThemeIcon size="xl" radius="xl" color="themeColor.4" variant="light">
@@ -163,10 +163,10 @@ export default function VerifyEmail() {
                 </ThemeIcon>
                 <div>
                   <Text size="xs" c="dimmed" tt="uppercase" fw={700}>
-                    {t('guest-guestPages-verifyEmail-email-address')}
+                    {t('guest.pages.verifyEmail.email-address')}
                   </Text>
                   <Text size="lg" fw={600}>
-                    {user?.email || t('guest-guestPages-verifyEmail-unknown')}
+                    {user?.email || t('guest.pages.verifyEmail.unknown')}
                   </Text>
                 </div>
               </Group>
@@ -178,8 +178,8 @@ export default function VerifyEmail() {
                 leftSection={isVerified ? <IconCheck size={14} /> : <IconMail size={14} />}
               >
                 {isVerified 
-                  ? t('guest-guestPages-verifyEmail-verified')
-                  : t('guest-guestPages-verifyEmail-not-verified-status')}
+                  ? t('guest.pages.verifyEmail.verified')
+                  : t('guest.pages.verifyEmail.not-verified-status')}
               </Badge>
             </Group>
           </Card>
@@ -200,20 +200,20 @@ export default function VerifyEmail() {
           <div style={{ textAlign: 'center' }}>
             <Title order={3} mb="sm">
               {isVerified 
-                ? t('guest-guestPages-verifyEmail-already-verified-title')
-                : t('guest-guestPages-verifyEmail-verify-title')}
+                ? t('guest.pages.verifyEmail.already-verified-title')
+                : t('guest.pages.verifyEmail.verify-title')}
             </Title>
             <Text c="dimmed" size="sm" maw={400} style={{ margin: '0 auto' }}>
               {isVerified 
-                ? t('guest-guestPages-verifyEmail-already-verified-message')
-                : t('guest-guestPages-verifyEmail-instruction')}
+                ? t('guest.pages.verifyEmail.already-verified-message')
+                : t('guest.pages.verifyEmail.instruction')}
             </Text>
           </div>
 
           {/* Action Buttons */}
           {!isVerified && (
             <>
-              <Divider label={t('guest-guestPages-verifyEmail-havent-received')} labelPosition="center" />
+              <Divider label={t('guest.pages.verifyEmail.havent-received')} labelPosition="center" />
               
               <Group justify="center" gap="md">
                 <Button 
@@ -224,7 +224,7 @@ export default function VerifyEmail() {
                   disabled={sending}
                   leftSection={<IconSend size={18} />}
                 >
-                  {t('guest-guestPages-verifyEmail-resend')}
+                  {t('guest.pages.verifyEmail.resend')}
                 </Button>
                 
                 <Button 
@@ -234,7 +234,7 @@ export default function VerifyEmail() {
                   disabled={refreshing}
                   leftSection={<IconRefresh size={18} />}
                 >
-                  {t('guest-guestPages-verifyEmail-check-status')}
+                  {t('guest.pages.verifyEmail.check-status')}
                 </Button>
               </Group>
             </>
@@ -248,7 +248,7 @@ export default function VerifyEmail() {
               mt="md"
               leftSection={<IconCheck size={18} />}
             >
-              {t('guest-guestPages-verifyEmail-go-dashboard')}
+              {t('guest.pages.verifyEmail.go-dashboard')}
             </Button>
           )}
 

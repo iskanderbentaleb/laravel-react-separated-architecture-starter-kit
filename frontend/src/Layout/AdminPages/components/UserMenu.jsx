@@ -23,7 +23,7 @@ export default function UserMenu() {
         logout();
         navigate(LOGIN_ROUTE);
         // Show success notification
-        notifications.show({message: t('guest-guestPages-Authentication-logout-success-toast'),color: 'green'});
+        notifications.show({message: t('guest.pages.authentication.logout-success-toast'),color: 'green'});
       })
       .catch((reason) => {
         console.log(reason);
@@ -33,9 +33,6 @@ export default function UserMenu() {
   const userName = User?.name || 'username';
   const userEmail = User?.email || 'user@example.com';
 
-    useEffect(()=>{
-      console.log('UserMenu rendered with user:', User);  
-    })
 
   return (
     <Group>
@@ -94,7 +91,8 @@ export default function UserMenu() {
             leftSection={<IconSettings style={{ width: rem(16), height: rem(16) }} stroke={1.5} />}
             onClick={() => { navigate(ADMIN_SETTINGS_ROUTE);}}
           >
-            {t('admin-AdminPages-Layout-NavbarNested-settings')}
+            {t('admin.components.topbar.userMenu.settings')}
+
           </Menu.Item>
 
           <Divider />
@@ -104,7 +102,7 @@ export default function UserMenu() {
             leftSection={<IconLogout style={{ width: rem(16), height: rem(16) }} stroke={1.5} />}
             style={{ color: 'var(--mantine-color-red-6)' }}
           >
-            {t('admin-AdminPages-Layout-NavbarNested-logout')}
+            {t('admin.components.topbar.userMenu.logout')}
           </Menu.Item>
         </Menu.Dropdown>
       </Menu>
