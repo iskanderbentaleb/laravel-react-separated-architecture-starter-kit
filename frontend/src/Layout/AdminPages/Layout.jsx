@@ -78,11 +78,9 @@ export default function Layout() {
           style={{ marginLeft: 10 }}
         />
 
-        <div style={{  marginLeft: 20}}>
-          <AppLogo /> 
-        </div>
+        <AppLogo /> 
 
-        <div style={{ marginLeft: 'auto', marginRight: 20, display: 'flex', gap: 20 }}>
+        <div style={{ display: 'flex', gap: 10 , margin: '0 15px' }}>
           <ThemeToggle/>
           <LanguagePicker/>
           <UserMenu />

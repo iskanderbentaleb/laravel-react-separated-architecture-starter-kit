@@ -10,7 +10,7 @@ export function SecurityDetailsModal({ opened, onClose, securitySteps }) {
     <Modal
       opened={opened}
       onClose={onClose}
-      title={t('admin.pages.security.guide.title', { defaultValue: 'Account security guide' })}
+      title={t('admin.pages.settings.security.guide.title')}
       centered
       size="md"
       overlayProps={{ blur: 3 }}
@@ -35,7 +35,7 @@ export function SecurityDetailsModal({ opened, onClose, securitySteps }) {
         ))}
 
         <Text size="sm" c="dimmed">
-          {t('admin.pages.settings.security.guide.footer', { defaultValue: 'Complete these steps to secure your account faster.' })}
+          {t('admin.pages.settings.security.guide.footer')}
         </Text>
         <Group position="right">
           <Button variant="default" size="xs" radius="md" onClick={onClose}>

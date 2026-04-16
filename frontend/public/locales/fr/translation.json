@@ -1,4 +1,15 @@
 {
+    "sharedWithAllUsersRoles": {
+        "components": {
+            "topbar": {
+                "languagePicker": {
+                    "english": "Anglais",
+                    "french": "Français",
+                    "arabic": "Arabe"
+                }  
+            }
+        }
+    },
     "guest": {
         "pages": {
             "authentication": {
@@ -96,6 +107,24 @@
                 "verify-success": "Votre e-mail est maintenant vérifié.",
                 "not-verified": "Votre e-mail n'est toujours pas vérifié. Veuillez vérifier votre boîte de réception.",
                 "check-error": "Veuillez réessayer."
+            },
+            "resetPassword": {
+                "title": "Réinitialiser votre mot de passe",
+                "description": "Entrez votre nouveau mot de passe ci-dessous pour réinitialiser le mot de passe de votre compte.",
+                "new-password": "Nouveau mot de passe",
+                "new-password-placeholder": "Entrez le nouveau mot de passe",
+                "confirm-password": "Confirmer le mot de passe",
+                "confirm-password-placeholder": "Confirmez le nouveau mot de passe",
+                "reset-button": "Réinitialiser le mot de passe",
+                "back-login-button": "Retour à la connexion",
+                "validation": {
+                    "password-error": "Le mot de passe doit contenir au moins 8 caractères",
+                    "confirm-password-error": "Les mots de passe ne correspondent pas"
+                },
+                "messages": {
+                    "password-reset-success": "Mot de passe réinitialisé avec succès ! Veuillez vous connecter avec votre nouveau mot de passe.",
+                    "password-reset-error": "Échec de la réinitialisation du mot de passe. Veuillez réessayer ou demander un nouveau lien."
+                }
             }
         }
     },

@@ -1,0 +1,596 @@
+{
+    "sharedWithAllUsersRoles": {
+        "components": {
+            "topbar": {
+                "languagePicker": {
+                    "english": "الإنجليزية",
+                    "french": "الفرنسية",
+                    "arabic": "العربية"
+                }  
+            }
+        }
+    },
+    "guest": {
+            "pages":{
+                "authentication": {
+                    "welcome": "مرحباً بك 🎉!",
+                    "email": "البريد الإلكتروني",
+                    "email-error": "بريد إلكتروني غير صالح",
+                    "email-error-toast": "الرجاء إدخال بريد إلكتروني صالح",
+                    "password": "كلمة المرور", 
+                    "password-error": "كلمة المرور يجب أن تكون 8 محارف على الأقل",
+                    "password-error-toast": "الرجاء تعبئة حقل كلمة المرور",
+                    "password-forgot": "نسيت كلمة المرور؟",  
+                    "submit": "تسجيل الدخول",
+                    "login-success-toast": "تم تسجيل الدخول بنجاح! مرحباً بعودتك! 🎉",
+                    "logout-success-toast": "تم تسجيل الخروج بنجاح! نراكم في المرة القادمة! 👋",
+                    "register": "ليس لديك حساب؟ سجل الآن"
+                },
+                "register": {
+                    "welcome": "إنشاء حساب",
+                    "name": "الاسم",
+                    "name-error": "الاسم يجب أن يكون حرفين على الأقل",
+                    "name-error-toast": "الرجاء إدخال اسم صالح (حرفين على الأقل)",
+                    "email": "البريد الإلكتروني",
+                    "email-error": "بريد إلكتروني غير صالح",
+                    "email-error-toast": "الرجاء إدخال بريد إلكتروني صالح",
+                    "password": "كلمة المرور",
+                    "password-error": "كلمة المرور يجب أن تكون 8 محارف على الأقل",
+                    "password-error-toast": "الرجاء تعبئة حقل كلمة المرور (8 محارف على الأقل)",
+                    "password-confirmation": "تأكيد كلمة المرور",
+                    "password-confirmation-error": "كلمتا المرور غير متطابقتين",
+                    "password-confirmation-error-toast": "تأكيد كلمة المرور غير متطابق",
+                    "submit": "تسجيل",
+                    "login": "لديك حساب بالفعل؟ تسجيل الدخول",
+                    "success-toast": "تم التسجيل بنجاح! مرحباً بك! 🎉",
+                    "error-toast": "فشل التسجيل. الرجاء المحاولة مرة أخرى."
+                },
+                "forgot-password": {
+                    "title": "نسيت كلمة المرور",
+                    "description": "أدخل بريدك الإلكتروني وسنرسل لك رابطاً لإعادة تعيين كلمة المرور",
+                    "email": "البريد الإلكتروني",
+                    "email-error": "بريد إلكتروني غير صالح",
+                    "email-error-toast": "الرجاء إدخال بريد إلكتروني صالح",
+                    "send-reset-link": "إرسال رابط إعادة التعيين",
+                    "back-to-login": "العودة إلى تسجيل الدخول",
+                    "success": "تم إرسال رابط إعادة تعيين كلمة المرور إلى بريدك الإلكتروني!",
+                    "error": "حدث خطأ ما. الرجاء المحاولة مرة أخرى.",
+                    "two-factor-sent-toast": "تم إرسال رمز التحقق بخطوتين إلى عنوان بريدك الإلكتروني.",
+                    "reset-password-title": "إعادة تعيين كلمة المرور",
+                    "reset-password-description": "أدخل كلمة المرور الجديدة أدناه",
+                    "new-password": "كلمة المرور الجديدة",
+                    "confirm-password": "تأكيد كلمة المرور",
+                    "reset-password-button": "إعادة تعيين كلمة المرور",
+                    "password-match-error": "كلمتا المرور غير متطابقتين",
+                    "password-reset-success": "تم إعادة تعيين كلمة المرور بنجاح! الرجاء تسجيل الدخول بكلمة المرور الجديدة.",
+                    "password-reset-error": "فشل إعادة تعيين كلمة المرور. الرجاء المحاولة مرة أخرى أو طلب رابط جديد."
+                },
+                "twoFactor": {
+                    "title": "التحقق بخطوتين",
+                    "email": "البريد الإلكتروني",
+                    "email-placeholder": "بريدك@example.com",
+                    "code": "رمز التحقق",
+                    "code-placeholder": "123456",
+                    "instruction": "أدخل الرقم المكون من 6 أرقام المرسل إلى بريدك الإلكتروني للمتابعة.",
+                    "verify": "تحقق واستمر",  
+                    "back-login": "العودة إلى تسجيل الدخول",
+                    "email-error": "أدخل بريداً إلكترونياً صالحاً",
+                    "code-error": "أدخل الرمز المكون من 6 أرقام",
+                    "email-error-toast": "الرجاء إدخال عنوان بريد إلكتروني صالح",
+                    "code-error-toast": "الرجاء إدخال رمز التحقق المكون من 6 أرقام",
+                    "verify-success": "تم قبول رمز التحقق بخطوتين.",
+                    "invalid-code": "الرجاء التحقق من الرمز والمحاولة مرة أخرى."
+                },
+                "notFound":{
+                    "title": "لا يوجد شيء هنا",
+                    "description": "الصفحة التي تحاول فتحها غير موجودة. ربما أخطأت في كتابة العنوان، أو تم نقل الصفحة إلى رابط آخر. إذا كنت تعتقد أن هذا خطأ، فاتصل بالدعم.",
+                    "button": "خذني إلى الصفحة الرئيسية"
+                },
+                "verifyEmail":{
+                    "title": "تحقق من عنوان بريدك الإلكتروني",
+                    "email-address": "عنوان البريد الإلكتروني",
+                    "unknown": "غير معروف",
+                    "verified": "تم التحقق",
+                    "not-verified-status": "غير محقق",
+                    "already-verified-title": "البريد الإلكتروني محقق بالفعل! 🎉",
+                    "verify-title": "تحقق من بريدك الإلكتروني للمتابعة",
+                    "already-verified-message": "تم التحقق من عنوان بريدك الإلكتروني بنجاح. يمكنك الآن الوصول إلى جميع الميزات.",
+                    "instruction": "لقد أرسلنا رابط تحقق إلى عنوان بريدك الإلكتروني. الرجاء التحقق من صندوق الوارد الخاص بك والنقر على الرابط لتأكيد حسابك.",
+                    "havent-received": "لم تستلم البريد الإلكتروني؟",
+                    "resend": "إعادة إرسال بريد التحقق",
+                    "check-status": "التحقق من حالة التحقق",
+                    "go-dashboard": "انتقل إلى لوحة التحكم",
+                    "signin-error": "يجب عليك تسجيل الدخول قبل التحقق من بريدك الإلكتروني.",
+                    "load-error": "الرجاء تحديث الصفحة.",
+                    "send-success": "تم إرسال رسالة تحقق جديدة إلى صندوق الوارد الخاص بك.",
+                    "send-error": "الرجاء المحاولة مرة أخرى لاحقاً.",
+                    "verify-success": "تم التحقق من بريدك الإلكتروني الآن.",
+                    "not-verified": "لم يتم التحقق من بريدك الإلكتروني بعد. الرجاء التحقق من صندوق الوارد الخاص بك.",
+                    "check-error": "الرجاء المحاولة مرة أخرى."
+                },
+                "resetPassword": {
+                    "title": "إعادة تعيين كلمة المرور الخاصة بك",
+                    "description": "أدخل كلمة المرور الجديدة أدناه لإعادة تعيين كلمة مرور حسابك.",
+                    "new-password": "كلمة المرور الجديدة",
+                    "new-password-placeholder": "أدخل كلمة المرور الجديدة",
+                    "confirm-password": "تأكيد كلمة المرور",
+                    "confirm-password-placeholder": "تأكيد كلمة المرور الجديدة",
+                    "reset-button": "إعادة تعيين كلمة المرور",
+                    "back-login-button": "العودة إلى تسجيل الدخول",
+                    "validation": {
+                        "password-error": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل",
+                        "confirm-password-error": "كلمتا المرور غير متطابقتين"
+                    },
+                    "messages": {
+                        "password-reset-success": "تم إعادة تعيين كلمة المرور بنجاح! يرجى تسجيل الدخول بكلمة المرور الجديدة.",
+                        "password-reset-error": "فشل إعادة تعيين كلمة المرور. يرجى المحاولة مرة أخرى أو طلب رابط جديد."
+                    }
+                }
+            }
+    },
+    "admin": {
+        "components": {
+            "topbar": {
+                "userMenu": {
+                    "settings": "الإعدادات",
+                    "logout": "تسجيل الخروج"
+                }
+            }
+        },
+        "pages": {
+            "settings": {
+                "title": "إعدادات الحساب",
+                "description": "إدارة معلومات حسابك وتفضيلات الأمان.",
+                "tabs": {
+                    "profile": "معلومات الملف الشخصي",
+                    "security": "الأمان والخصوصية"   
+                },
+                "security": {
+                    "progress": {
+                        "title": "درجة الأمان",
+                        "description": "أكمل خطوات الأمان هذه لتعزيز حسابك."
+                    },
+                    "steps": {
+                        "verifyEmail": {
+                            "title": "تحقق من بريدك الإلكتروني",
+                            "description": "تأكيد عنوان بريدك الإلكتروني لتأمين حسابك وتمكين الميزات المتقدمة.",
+                            "action": "تحقق من البريد الإلكتروني"
+                        },
+                        "twoFactor": {
+                            "title": "تفعيل التحقق بخطوتين",
+                            "description": "أضف خطوة تحقق إضافية لحماية حسابك من الوصول غير المصرح به.",
+                            "action": "تفعيل التحقق بخطوتين"
+                        },
+                        "completeProfile": {
+                            "title": "أكمل ملفك الشخصي",
+                            "description": "حافظ على تحديث معلومات ملفك الشخصي ليبقى حسابك موثوقاً وقابلاً للاسترداد.",
+                            "action": "إكمال الملف الشخصي"
+                        }
+                    },
+                    "detailsButton": "ماذا تفعل؟",
+                    "guide": {
+                        "title": "دليل أمان الحساب",
+                        "footer": "أكمل هذه الخطوات لتأمين حسابك بشكل أسرع."
+                    }
+                },
+                "completed": "مكتمل",
+                "close": "إغلاق",
+                "pending": "قيد الانتظار",
+                "profileSettings": "إعدادات الملف الشخصي",
+                "manageProfileInfo": "إدارة معلوماتك الشخصية وتفضيلاتك",
+                "profilePicture": {
+                    "title": "الصورة الشخصية",
+                    "description": "تحميل صورة شخصية جديدة. JPG أو PNG أو GIF حتى 5 ميغابايت.",
+                    "change": "تغيير",
+                    "changePhoto": "تغيير الصورة",
+                    "changePhotoButton": "انقر لتغيير الصورة الشخصية",
+                    "fileInputPlaceholder": "اختر صورة",
+                    "removeButton": "إزالة"
+                },
+                "personalInformation": "المعلومات الشخصية",
+                "fullName": {
+                    "label": "الاسم الكامل",
+                    "placeholder": "اسمك"
+                },
+                "email": {
+                    "label": "عنوان البريد الإلكتروني",
+                    "placeholder": "بريدك@example.com",
+                    "verified": "تم التحقق",
+                    "notVerified": "غير محقق",
+                    "notVerifiedMessage": "لم يتم التحقق من بريدك الإلكتروني بعد. يجب القيام بذلك قبل تفعيل التحقق بخطوتين.",
+                    "sendVerification": "إرسال بريد التحقق"
+                },
+                "phone": {
+                    "label": "رقم الهاتف",
+                    "placeholder": "+1234567890"
+                },
+                "saveChanges": "حفظ التغييرات",
+                "messages": {
+                    "noChanges": {
+                        "title": "لم يتم اكتشاف تغييرات",
+                        "message": "لم تقم بتحديث أي من حقول الملف الشخصي."
+                    },
+                    "profileUpdated": {
+                        "title": "تم تحديث الملف الشخصي",
+                        "message": "تم تحديث ملفك الشخصي بنجاح."
+                    },
+                    "unableUpdateProfile": {
+                        "title": "تعذر تحديث الملف الشخصي",
+                        "message": "الرجاء المحاولة مرة أخرى لاحقاً."
+                    },
+                    "passwordChanged": {
+                        "title": "تم تغيير كلمة المرور",
+                        "message": "تم تغيير كلمة المرور الخاصة بك بنجاح."
+                    },
+                    "unableChangePassword": {
+                        "title": "تعذر تغيير كلمة المرور",
+                        "message": "الرجاء المحاولة مرة أخرى لاحقاً."
+                    },
+                    "twoFactorEnabled": {
+                        "title": "تم تفعيل التحقق بخطوتين",
+                        "message": "تم تفعيل التحقق بخطوتين الآن."
+                    },
+                    "twoFactorVerificationSent": {
+                        "title": "تم إرسال التحقق",
+                        "message": "تم إرسال التحقق. تحقق من بريدك الإلكتروني للحصول على رمز التحقق بخطوتين."
+                    },
+                    "unableUpdateTwoFactor": {
+                        "title": "تعذر تحديث التحقق بخطوتين",
+                        "message": "الرجاء المحاولة مرة أخرى لاحقاً."
+                    },
+                    "verificationSent": {
+                        "title": "تم إرسال التحقق",
+                        "message": "تم إرسال بريد تحقق إلى صندوق الوارد الخاص بك."
+                    },
+                    "unableSendVerification": {
+                        "title": "تعذر إرسال التحقق",
+                        "message": "الرجاء المحاولة مرة أخرى لاحقاً."
+                    },
+                    "accountDeleted": {
+                        "title": "تم حذف الحساب",
+                        "message": "تمت إزالة حسابك بشكل دائم."
+                    },
+                    "unableDeleteAccount": {
+                        "title": "تعذر حذف الحساب",
+                        "message": "الرجاء المحاولة مرة أخرى لاحقاً."
+                    },
+                    "invalidCode": {
+                        "title": "رمز غير صالح",
+                        "message": "الرجاء التحقق من الرمز والمحاولة مرة أخرى."
+                    },
+                    "twoFactorCancelled": {
+                        "title": "تم إلغاء التحقق بخطوتين",
+                        "message": "تم إلغاء إعداد التحقق بخطوتين."
+                    },
+                    "unableCancelTwoFactor": {
+                        "title": "تعذر إلغاء الإعداد",
+                        "message": "الرجاء المحاولة مرة أخرى."
+                    },
+                    "loggedOut": {
+                        "title": "تم تسجيل الخروج",
+                        "message": "تم تسجيل خروجك من جميع الأجهزة الأخرى."
+                    },
+                    "unableLogout": {
+                        "title": "تعذر تسجيل الخروج",
+                        "message": "الرجاء المحاولة مرة أخرى لاحقاً."
+                    }
+                },
+                "validation": {
+                    "emailError": "بريد إلكتروني غير صالح",
+                    "passwordError": "كلمة المرور يجب أن تكون 8 محارف على الأقل",
+                    "confirmPasswordError": "كلمتا المرور غير متطابقتين"
+                },
+                "changePassword": {
+                    "title": "تغيير كلمة المرور",
+                    "currentPassword": {
+                        "label": "كلمة المرور الحالية",
+                        "placeholder": "أدخل كلمة المرور الحالية"
+                    },
+                    "newPassword": {
+                        "label": "كلمة المرور الجديدة",
+                        "placeholder": "أدخل كلمة المرور الجديدة"
+                    },
+                    "confirmNewPassword": {
+                        "label": "تأكيد كلمة المرور الجديدة",
+                        "placeholder": "تأكيد كلمة المرور الجديدة"
+                    },
+                    "updateButton": "تحديث كلمة المرور"
+                },
+                "twoFactor": {
+                    "title": "التحقق بخطوتين",
+                    "description": "أضف طبقة إضافية من الأمان إلى حسابك.",
+                    "pendingMessage": "تم إرسال رمز تحقق إلى بريدك الإلكتروني. أدخله أدناه لإكمال تفعيل التحقق بخطوتين.",
+                    "verifyEmailBefore": "تحقق من بريدك الإلكتروني قبل تفعيل التحقق بخطوتين. التحقق من البريد الإلكتروني مطلوب للتحقق بخطوتين المعتمد على البريد الإلكتروني."
+                },
+                "activeSessions": {
+                    "title": "الجلسات النشطة",
+                    "logoutAll": "تسجيل الخروج من الكل",
+                    "lastActivity": "آخر نشاط",
+                    "currentSession": "الجلسة الحالية",
+                    "noSessions": "لم يتم العثور على جلسات نشطة.",
+                    "unknown": "غير معروف",
+                    "unknownDevice": "جهاز غير معروف",
+                    "ipAddress": "IP"
+                },
+                "dangerZone": {
+                    "title": "منطقة الخطر",
+                    "deleteAccount": {
+                        "title": "حذف الحساب",
+                        "description": "حذف حسابك وجميع البيانات المرتبطة به بشكل دائم. لا يمكن التراجع عن هذا الإجراء.",
+                        "modal": {
+                            "title": "حذف الحساب",
+                            "warning": "تحذير: سيؤدي هذا الإجراء إلى حذف حسابك بشكل دائم.",
+                            "undoWarning": "لا يمكن التراجع عن هذا الإجراء.",
+                            "confirmText": "اكتب {{strong}} للتأكيد:",
+                            "confirmPlaceholder": "DELETE",
+                            "enterPassword": "أدخل كلمة المرور الخاصة بك",
+                            "body": "سيؤدي هذا إلى حذف حسابك وجميع البيانات المرتبطة به بشكل دائم."
+                        }
+                    }
+                },
+                "cancel": "إلغاء",
+                "logoutAllDevicesModal": {
+                    "title": "تسجيل الخروج من جميع الأجهزة",
+                    "body": "سيتم تسجيل خروجك من جميع الأجهزة الأخرى. ستبقى جلسة العمل الحالية نشطة.",
+                    "action": "تسجيل الخروج من جميع الأجهزة"
+                },
+                "confirmTwoFactorModal": {
+                    "title": "تأكيد التحقق بخطوتين",
+                    "body": "أدخل الرمز المكون من 6 أرقام المرسل إلى بريدك الإلكتروني لإكمال تفعيل التحقق بخطوتين.",
+                    "verificationCode": {
+                        "label": "رمز التحقق",
+                        "placeholder": "123456"
+                    },
+                    "verifyButton": "تحقق من الرمز"
+                },
+                "errors": {
+                "unableLoadSettings": "تعذر تحميل الإعدادات. الرجاء تحديث الصفحة.",
+                "unableLoadProfile": {
+                    "title": "تعذر تحميل الملف الشخصي",
+                    "message": "الرجاء المحاولة مرة أخرى لاحقاً."
+                }
+                }
+            }
+        }
+    },
+    "seller": {
+        "components": {
+            "topbar": {
+                "userMenu": {
+                    "settings": "الإعدادات",
+                    "logout": "تسجيل الخروج"
+                }
+            }
+        },
+        "pages": {
+            "settings": {
+                "title": "إعدادات الحساب",
+                "description": "إدارة معلومات حسابك وتفضيلات الأمان.",
+                "tabs": {
+                    "profile": "معلومات الملف الشخصي",
+                    "security": "الأمان والخصوصية"   
+                },
+                "security": {
+                    "progress": {
+                        "title": "درجة الأمان",
+                        "description": "أكمل خطوات الأمان هذه لتعزيز حسابك."
+                    },
+                    "steps": {
+                        "verifyEmail": {
+                            "title": "تحقق من بريدك الإلكتروني",
+                            "description": "تأكيد عنوان بريدك الإلكتروني لتأمين حسابك وتمكين الميزات المتقدمة.",
+                            "action": "تحقق من البريد الإلكتروني"
+                        },
+                        "twoFactor": {
+                            "title": "تفعيل التحقق بخطوتين",
+                            "description": "أضف خطوة تحقق إضافية لحماية حسابك من الوصول غير المصرح به.",
+                            "action": "تفعيل التحقق بخطوتين"
+                        },
+                        "completeProfile": {
+                            "title": "أكمل ملفك الشخصي",
+                            "description": "حافظ على تحديث معلومات ملفك الشخصي ليبقى حسابك موثوقاً وقابلاً للاسترداد.",
+                            "action": "إكمال الملف الشخصي"
+                        }
+                    },
+                    "detailsButton": "ماذا تفعل؟",
+                    "guide": {
+                        "title": "دليل أمان الحساب",
+                        "footer": "أكمل هذه الخطوات لتأمين حسابك بشكل أسرع."
+                    }
+                },
+                "completed": "مكتمل",
+                "close": "إغلاق",
+                "pending": "قيد الانتظار",
+                "profileSettings": "إعدادات الملف الشخصي",
+                "manageProfileInfo": "إدارة معلوماتك الشخصية وتفضيلاتك",
+                "profilePicture": {
+                    "title": "الصورة الشخصية",
+                    "description": "تحميل صورة شخصية جديدة. JPG أو PNG أو GIF حتى 5 ميغابايت.",
+                    "change": "تغيير",
+                    "changePhoto": "تغيير الصورة",
+                    "changePhotoButton": "انقر لتغيير الصورة الشخصية",
+                    "fileInputPlaceholder": "اختر صورة",
+                    "removeButton": "إزالة"
+                },
+                "personalInformation": "المعلومات الشخصية",
+                "fullName": {
+                    "label": "الاسم الكامل",
+                    "placeholder": "اسمك"
+                },
+                "email": {
+                    "label": "عنوان البريد الإلكتروني",
+                    "placeholder": "بريدك@example.com",
+                    "verified": "تم التحقق",
+                    "notVerified": "غير محقق",
+                    "notVerifiedMessage": "لم يتم التحقق من بريدك الإلكتروني بعد. يجب القيام بذلك قبل تفعيل التحقق بخطوتين.",
+                    "sendVerification": "إرسال بريد التحقق"
+                },
+                "phone": {
+                    "label": "رقم الهاتف",
+                    "placeholder": "+1234567890"
+                },
+                "saveChanges": "حفظ التغييرات",
+                "messages": {
+                    "noChanges": {
+                        "title": "لم يتم اكتشاف تغييرات",
+                        "message": "لم تقم بتحديث أي من حقول الملف الشخصي."
+                    },
+                    "profileUpdated": {
+                        "title": "تم تحديث الملف الشخصي",
+                        "message": "تم تحديث ملفك الشخصي بنجاح."
+                    },
+                    "unableUpdateProfile": {
+                        "title": "تعذر تحديث الملف الشخصي",
+                        "message": "الرجاء المحاولة مرة أخرى لاحقاً."
+                    },
+                    "passwordChanged": {
+                        "title": "تم تغيير كلمة المرور",
+                        "message": "تم تغيير كلمة المرور الخاصة بك بنجاح."
+                    },
+                    "unableChangePassword": {
+                        "title": "تعذر تغيير كلمة المرور",
+                        "message": "الرجاء المحاولة مرة أخرى لاحقاً."
+                    },
+                    "twoFactorEnabled": {
+                        "title": "تم تفعيل التحقق بخطوتين",
+                        "message": "تم تفعيل التحقق بخطوتين الآن."
+                    },
+                    "twoFactorVerificationSent": {
+                        "title": "تم إرسال التحقق",
+                        "message": "تم إرسال التحقق. تحقق من بريدك الإلكتروني للحصول على رمز التحقق بخطوتين."
+                    },
+                    "unableUpdateTwoFactor": {
+                        "title": "تعذر تحديث التحقق بخطوتين",
+                        "message": "الرجاء المحاولة مرة أخرى لاحقاً."
+                    },
+                    "verificationSent": {
+                        "title": "تم إرسال التحقق",
+                        "message": "تم إرسال بريد تحقق إلى صندوق الوارد الخاص بك."
+                    },
+                    "unableSendVerification": {
+                        "title": "تعذر إرسال التحقق",
+                        "message": "الرجاء المحاولة مرة أخرى لاحقاً."
+                    },
+                    "accountDeleted": {
+                        "title": "تم حذف الحساب",
+                        "message": "تمت إزالة حسابك بشكل دائم."
+                    },
+                    "unableDeleteAccount": {
+                        "title": "تعذر حذف الحساب",
+                        "message": "الرجاء المحاولة مرة أخرى لاحقاً."
+                    },
+                    "invalidCode": {
+                        "title": "رمز غير صالح",
+                        "message": "الرجاء التحقق من الرمز والمحاولة مرة أخرى."
+                    },
+                    "twoFactorCancelled": {
+                        "title": "تم إلغاء التحقق بخطوتين",
+                        "message": "تم إلغاء إعداد التحقق بخطوتين."
+                    },
+                    "unableCancelTwoFactor": {
+                        "title": "تعذر إلغاء الإعداد",
+                        "message": "الرجاء المحاولة مرة أخرى."
+                    },
+                    "loggedOut": {
+                        "title": "تم تسجيل الخروج",
+                        "message": "تم تسجيل خروجك من جميع الأجهزة الأخرى."
+                    },
+                    "unableLogout": {
+                        "title": "تعذر تسجيل الخروج",
+                        "message": "الرجاء المحاولة مرة أخرى لاحقاً."
+                    }
+                },
+                "validation": {
+                    "emailError": "بريد إلكتروني غير صالح",
+                    "passwordError": "كلمة المرور يجب أن تكون 8 محارف على الأقل",
+                    "confirmPasswordError": "كلمتا المرور غير متطابقتين"
+                },
+                "changePassword": {
+                    "title": "تغيير كلمة المرور",
+                    "currentPassword": {
+                        "label": "كلمة المرور الحالية",
+                        "placeholder": "أدخل كلمة المرور الحالية"
+                    },
+                    "newPassword": {
+                        "label": "كلمة المرور الجديدة",
+                        "placeholder": "أدخل كلمة المرور الجديدة"
+                    },
+                    "confirmNewPassword": {
+                        "label": "تأكيد كلمة المرور الجديدة",
+                        "placeholder": "تأكيد كلمة المرور الجديدة"
+                    },
+                    "updateButton": "تحديث كلمة المرور"
+                },
+                "twoFactor": {
+                    "title": "التحقق بخطوتين",
+                    "description": "أضف طبقة إضافية من الأمان إلى حسابك.",
+                    "pendingMessage": "تم إرسال رمز تحقق إلى بريدك الإلكتروني. أدخله أدناه لإكمال تفعيل التحقق بخطوتين.",
+                    "verifyEmailBefore": "تحقق من بريدك الإلكتروني قبل تفعيل التحقق بخطوتين. التحقق من البريد الإلكتروني مطلوب للتحقق بخطوتين المعتمد على البريد الإلكتروني."
+                },
+                "activeSessions": {
+                    "title": "الجلسات النشطة",
+                    "logoutAll": "تسجيل الخروج من الكل",
+                    "lastActivity": "آخر نشاط",
+                    "currentSession": "الجلسة الحالية",
+                    "noSessions": "لم يتم العثور على جلسات نشطة.",
+                    "unknown": "غير معروف",
+                    "unknownDevice": "جهاز غير معروف",
+                    "ipAddress": "IP"
+                },
+                "dangerZone": {
+                    "title": "منطقة الخطر",
+                    "deleteAccount": {
+                        "title": "حذف الحساب",
+                        "description": "حذف حسابك وجميع البيانات المرتبطة به بشكل دائم. لا يمكن التراجع عن هذا الإجراء.",
+                        "modal": {
+                            "title": "حذف الحساب",
+                            "warning": "تحذير: سيؤدي هذا الإجراء إلى حذف حسابك بشكل دائم.",
+                            "undoWarning": "لا يمكن التراجع عن هذا الإجراء.",
+                            "confirmText": "اكتب {{strong}} للتأكيد:",
+                            "confirmPlaceholder": "DELETE",
+                            "enterPassword": "أدخل كلمة المرور الخاصة بك",
+                            "body": "سيؤدي هذا إلى حذف حسابك وجميع البيانات المرتبطة به بشكل دائم."
+                        }
+                    }
+                },
+                "cancel": "إلغاء",
+                "logoutAllDevicesModal": {
+                    "title": "تسجيل الخروج من جميع الأجهزة",
+                    "body": "سيتم تسجيل خروجك من جميع الأجهزة الأخرى. ستبقى جلسة العمل الحالية نشطة.",
+                    "action": "تسجيل الخروج من جميع الأجهزة"
+                },
+                "confirmTwoFactorModal": {
+                    "title": "تأكيد التحقق بخطوتين",
+                    "body": "أدخل الرمز المكون من 6 أرقام المرسل إلى بريدك الإلكتروني لإكمال تفعيل التحقق بخطوتين.",
+                    "verificationCode": {
+                        "label": "رمز التحقق",
+                        "placeholder": "123456"
+                    },
+                    "verifyButton": "تحقق من الرمز"
+                },
+                "errors": {
+                    "unableLoadSettings": "تعذر تحميل الإعدادات. الرجاء تحديث الصفحة.",
+                    "unableLoadProfile": {
+                        "title": "تعذر تحميل الملف الشخصي",
+                        "message": "الرجاء المحاولة مرة أخرى لاحقاً."
+                    }
+                }
+            }
+        }
+    },
+
+    "admin-AdminPages-Layout-NavbarNested-Parent-Quick-Link": "روابط سريعة",
+    "admin-AdminPages-Layout-NavbarNested-Child-Dashboard": "لوحة التحكم",
+    "admin-AdminPages-Layout-NavbarNested-Child-NEW-PRODUCTS": "منتج جديد",
+    "admin-AdminPages-Layout-NavbarNested-Child-NEW-COUPON": "قسيمة جديدة",
+    "admin-AdminPages-Layout-NavbarNested-Parent-CATALOG": "الكتالوج",
+    "admin-AdminPages-Layout-NavbarNested-Child-Products": "المنتجات",
+    "admin-AdminPages-Layout-NavbarNested-Child-Categories": "التصنيفات",
+
+    "admin-AdminPages-Layout-main-header": "تصنيف جديد",
+    "admin-AdminPages-Layout-main-search": "بحث..",
+    "admin-AdminPages-Layout-main-table-CATEGORY-NAME": "اسم التصنيف",
+    "admin-AdminPages-Layout-main-table-PARENT-CATEGORY": "التصنيف الأصلي",
+    "admin-AdminPages-Layout-main-table-STATUS": "الحالة",
+    "admin-AdminPages-Layout-main-table-INCLUDE-IN-MENU": "تضمين في القائمة"
+}

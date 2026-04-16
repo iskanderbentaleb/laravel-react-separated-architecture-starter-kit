@@ -63,12 +63,10 @@ export default function ResetPassword() {
     validate: {
       password: (value) => 
         value.length < 8 
-          ? t('guest-guestPages-Authentication-password-error') || 'Password must be at least 8 characters' 
-          : null,
+          ? t('guest.pages.resetPassword.validation.password-error') : null,
       password_confirmation: (value, values) =>
         value !== values.password
-          ? t('guest-guestPages-Authentication-password-match-error') || 'Passwords do not match'
-          : null,
+          ? t('guest.pages.resetPassword.validation.confirm-password-error') : null,
     },
   });
 
@@ -80,7 +78,7 @@ export default function ResetPassword() {
       
       // Show success notification
       notifications.show({ 
-        message: t('guest-guestPages-Authentication-password-reset-success') || 'Password reset successfully!', 
+        message: t('guest.pages.resetPassword.messages.password-reset-success') , 
         color: 'green' 
       });
       
@@ -91,7 +89,7 @@ export default function ResetPassword() {
       
     } catch (reason) {
       notifications.show({ 
-        message: reason.response?.data?.message || t('guest-guestPages-Authentication-password-reset-error') || 'Something went wrong. Please try again.', 
+        message: reason.response?.data?.message || t('guest.pages.resetPassword.messages.password-reset-error') , 
         color: 'red' 
       });
     } finally {
@@ -109,11 +107,11 @@ export default function ResetPassword() {
       />
 
       <Title ta="center" mt={'70px'} size="h3">
-        {t('guest-guestPages-Authentication-reset-password-title') || 'Reset Password'}
+        {t('guest.pages.resetPassword.title')}
       </Title>
       
       <Text ta="center" c="dimmed" size="sm" mt="md">
-        {t('guest-guestPages-Authentication-reset-password-description') || 'Enter your new password below'}
+        {t('guest.pages.resetPassword.description')}
       </Text>
       
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
@@ -122,16 +120,16 @@ export default function ResetPassword() {
           <Stack>
             <PasswordInput
               withAsterisk
-              label={t('guest-guestPages-Authentication-new-password') || 'New Password'}
-              placeholder={t('guest-guestPages-Authentication-new-password') || 'Enter new password'}
+              label={t('guest.pages.resetPassword.new-password')}
+              placeholder={t('guest.pages.resetPassword.new-password-placeholder')}
               {...form.getInputProps('password')}
               size="sm"
             />
 
             <PasswordInput
               withAsterisk
-              label={t('guest-guestPages-Authentication-confirm-password') || 'Confirm Password'}
-              placeholder={t('guest-guestPages-Authentication-confirm-password') || 'Confirm your new password'}
+              label={t('guest.pages.resetPassword.confirm-password')}
+              placeholder={t('guest.pages.resetPassword.confirm-password-placeholder')}
               {...form.getInputProps('password_confirmation')}
               size="sm"
             />
@@ -143,7 +141,7 @@ export default function ResetPassword() {
             </Button>
             :
             <Button color="themeColor.9" type="submit" mt="xl" fullWidth>
-              {t('guest-guestPages-Authentication-reset-password-button') || 'Reset Password'}
+              {t('guest.pages.resetPassword.reset-button')}
             </Button>
           }
 
@@ -154,7 +152,7 @@ export default function ResetPassword() {
               gradient={{ from: 'themeColor.4', to: 'themeColor.4' }}
               size="sm"
             >
-              {t('guest-guestPages-Authentication-back-to-login') || 'Back to Login'}
+              {t('guest.pages.resetPassword.back-login-button') || 'Back to Login'}
             </Anchor>
           </Group>
 

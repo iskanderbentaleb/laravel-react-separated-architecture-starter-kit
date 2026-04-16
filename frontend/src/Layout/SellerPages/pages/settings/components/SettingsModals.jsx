@@ -10,7 +10,7 @@ export function SecurityDetailsModal({ opened, onClose, securitySteps }) {
     <Modal
       opened={opened}
       onClose={onClose}
-      title={t('seller.pages.security.guide.title', { defaultValue: 'Account security guide' })}
+      title={t('admin.pages.settings.security.guide.title')}
       centered
       size="md"
       overlayProps={{ blur: 3 }}
@@ -29,17 +29,17 @@ export function SecurityDetailsModal({ opened, onClose, securitySteps }) {
               </Text>
             </div>
             <Badge color={step.completed ? 'green' : 'yellow'} variant="light" size="xs">
-              {step.completed ? t('seller.pages.settings.completed') : t('seller.pages.settings.pending')}
+              {step.completed ? t('admin.pages.settings.completed') : t('admin.pages.settings.pending')}
             </Badge>
           </Group>
         ))}
 
         <Text size="sm" c="dimmed">
-          {t('seller.pages.settings.security.guide.footer', { defaultValue: 'Complete these steps to secure your account faster.' })}
+          {t('admin.pages.settings.security.guide.footer')}
         </Text>
         <Group position="right">
           <Button variant="default" size="xs" radius="md" onClick={onClose}>
-            {t('seller.pages.settings.close')}
+            {t('admin.pages.settings.close')}
           </Button>
         </Group>
       </Stack>
@@ -64,7 +64,7 @@ export function DeleteAccountModal({
     <Modal
       opened={opened}
       onClose={onClose}
-      title={t('seller.pages.settings.dangerZone.deleteAccount.title')}
+      title={t('admin.pages.settings.dangerZone.deleteAccount.title')}
       centered
       size="lg"
       overlayProps={{ blur: 3 }}
@@ -73,36 +73,36 @@ export function DeleteAccountModal({
     >
       <Stack>
         <Alert color="red" icon={<IconTrash size={16} />} radius="md">
-          <Text fw={600}>{t('seller.pages.settings.dangerZone.deleteAccount.modal.warning')}</Text>
-          <Text size="sm">{t('seller.pages.settings.dangerZone.deleteAccount.modal.undoWarning')}</Text>
+          <Text fw={600}>{t('admin.pages.settings.dangerZone.deleteAccount.modal.warning')}</Text>
+          <Text size="sm">{t('admin.pages.settings.dangerZone.deleteAccount.modal.undoWarning')}</Text>
         </Alert>
         <Text size="sm">
-          {t('seller.pages.settings.dangerZone.deleteAccount.modal.confirmText', { strong: 'DELETE' })}
+          {t('admin.pages.settings.dangerZone.deleteAccount.modal.confirmText', { strong: 'DELETE' })}
         </Text>
         <TextInput
-          placeholder={t('seller.pages.settings.dangerZone.deleteAccount.modal.confirmPlaceholder')}
+          placeholder={t('admin.pages.settings.dangerZone.deleteAccount.modal.confirmPlaceholder')}
           radius="md"
           size="sm"
           value={deleteConfirmation}
           onChange={onChangeConfirmation}
         />
         <PasswordInput
-          label={t('seller.pages.settings.dangerZone.deleteAccount.modal.enterPassword')}
-          placeholder={t('seller.pages.settings.dangerZone.deleteAccount.modal.enterPassword')}
+          label={t('admin.pages.settings.dangerZone.deleteAccount.modal.enterPassword')}
+          placeholder={t('admin.pages.settings.dangerZone.deleteAccount.modal.enterPassword')}
           radius="md"
           size="sm"
           value={deletePassword}
           onChange={onChangePassword}
         />
         <Text size="sm" c="dimmed">
-          {t('seller.pages.settings.dangerZone.deleteAccount.modal.body')}
+          {t('admin.pages.settings.dangerZone.deleteAccount.modal.body')}
         </Text>
         <Group justify="flex-end">
           <Button variant="default" onClick={onClose} radius="md">
-            {t('seller.pages.settings.cancel')}
+            {t('admin.pages.settings.cancel')}
           </Button>
           <Button color="red" onClick={onDelete} radius="md" disabled={!isDeleteEnabled || deleteLoading} loading={deleteLoading}>
-            {t('seller.pages.settings.dangerZone.deleteAccount.title')}
+            {t('admin.pages.settings.dangerZone.deleteAccount.title')}
           </Button>
         </Group>
       </Stack>
@@ -117,7 +117,7 @@ export function LogoutAllDevicesModal({ opened, onClose, onConfirm, logoutLoadin
     <Modal
       opened={opened}
       onClose={onClose}
-      title={t('seller.pages.settings.logoutAllDevicesModal.title')}
+      title={t('admin.pages.settings.logoutAllDevicesModal.title')}
       centered
       size="lg"
       overlayProps={{ blur: 3 }}
@@ -126,14 +126,14 @@ export function LogoutAllDevicesModal({ opened, onClose, onConfirm, logoutLoadin
     >
       <Stack>
         <Alert color="yellow" icon={<IconLogout size={16} />} radius="md">
-          {t('seller.pages.settings.logoutAllDevicesModal.body')}
+          {t('admin.pages.settings.logoutAllDevicesModal.body')}
         </Alert>
         <Group justify="flex-end">
           <Button variant="default" onClick={onClose} radius="md" disabled={logoutLoading}>
-            {t('seller.pages.settings.cancel')}
+            {t('admin.pages.settings.cancel')}
           </Button>
           <Button color="red" onClick={onConfirm} radius="md" loading={logoutLoading}>
-            {t('seller.pages.settings.logoutAllDevicesModal.action')}
+            {t('admin.pages.settings.logoutAllDevicesModal.action')}
           </Button>
         </Group>
       </Stack>
@@ -155,7 +155,7 @@ export function TwoFactorModal({
     <Modal
       opened={opened}
       onClose={onCancel}
-      title={t('seller.pages.settings.confirmTwoFactorModal.title')}
+      title={t('admin.pages.settings.confirmTwoFactorModal.title')}
       centered
       size="lg"
       overlayProps={{ blur: 3 }}
@@ -164,11 +164,11 @@ export function TwoFactorModal({
     >
       <Stack>
         <Text size="sm" c="dimmed">
-          {t('seller.pages.settings.confirmTwoFactorModal.body')}
+          {t('admin.pages.settings.confirmTwoFactorModal.body')}
         </Text>
         <TextInput
-          label={t('seller.pages.settings.confirmTwoFactorModal.verificationCode.label')}
-          placeholder={t('seller.pages.settings.confirmTwoFactorModal.verificationCode.placeholder')}
+          label={t('admin.pages.settings.confirmTwoFactorModal.verificationCode.label')}
+          placeholder={t('admin.pages.settings.confirmTwoFactorModal.verificationCode.placeholder')}
           value={twoFactorCode}
           onChange={onChangeCode}
           maxLength={6}
@@ -177,7 +177,7 @@ export function TwoFactorModal({
         />
         <Group justify="flex-end">
           <Button variant="default" onClick={onCancel} radius="md" disabled={twoFactorLoading}>
-            {t('seller.pages.settings.cancel')}
+            {t('admin.pages.settings.cancel')}
           </Button>
           <Button
             color="blue"
@@ -186,7 +186,7 @@ export function TwoFactorModal({
             disabled={twoFactorCode.trim().length !== 6}
             loading={twoFactorLoading}
           >
-            {t('seller.pages.settings.confirmTwoFactorModal.verifyButton')}
+            {t('admin.pages.settings.confirmTwoFactorModal.verifyButton')}
           </Button>
         </Group>
       </Stack>

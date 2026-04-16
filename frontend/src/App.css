@@ -1,0 +1,25 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Cairo:wght@200..1000&family=Noto+Kufi+Arabic:wght@100..900&display=swap');
+
+:root {
+  /* Default (English/French) */
+  --font-en: 'Bricolage Grotesque', sans-serif;
+  /* Arabic - Cairo is generally better for UI UX than Bitcount */
+  --font-ar: 'Cairo', 'Noto Kufi Arabic', sans-serif;
+  
+  /* This variable will be used by Mantine */
+  --app-font: var(--font-en);
+}
+
+/* Switch the variable based on direction */
+[dir="rtl"] {
+  --app-font: var(--font-ar);
+}
+
+[dir="ltr"] {
+  --app-font: var(--font-en);
+}
+
+body {
+  font-family: var(--app-font);
+}

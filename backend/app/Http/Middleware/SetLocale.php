@@ -20,7 +20,7 @@ class SetLocale
         $locale = $request->header('X-Locale', $request->query('locale', config('app.locale')));
 
         // Validate the locale
-        if (!in_array($locale, ['en', 'fr'])) {
+        if (!in_array($locale, ['en', 'fr', 'ar' ])) {
             return response()->json(['error' => 'Unsupported locale'], 400);
         }
 

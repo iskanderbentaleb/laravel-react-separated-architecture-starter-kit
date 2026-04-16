@@ -1,4 +1,4 @@
-import { Menu, Group, ActionIcon, rem } from '@mantine/core';
+import { Menu, Group, ActionIcon, rem, useDirection } from '@mantine/core';
 import {
   IconLanguage,
   IconCheck,
@@ -6,6 +6,7 @@ import {
 
 import English from '../assets/lang/English';
 import French from '../assets/lang/French';
+import Arabic from '../assets/lang/Arabic';
 
 import { useUserContext } from '../context/userContext';
 
@@ -17,12 +18,20 @@ export default function LanguagePicker() {
 
   // language traslation
   const { setLocale } = useUserContext();
-  const { i18n } = useTranslation();
+  const { i18n , t } = useTranslation();
   const currentLang = i18n.language || 'en';
+  
+  const { setDirection } = useDirection();
+
   
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
     setLocale(lng);
+    if (lng === 'ar') {
+      setDirection('rtl');
+    }else{
+      setDirection('ltr');
+    }
   };
   // language traslation
 
@@ -50,7 +59,8 @@ export default function LanguagePicker() {
             onClick={() => changeLanguage('en')}
             active={currentLang === 'en'}
           >
-            English
+            {/* English */}
+            {t('sharedWithAllUsersRoles.components.topbar.languagePicker.english')}
           </Menu.Item>
 
           <Menu.Item
@@ -60,12 +70,26 @@ export default function LanguagePicker() {
             onClick={() => changeLanguage('fr')}
             active={currentLang === 'fr'}
           >
-            Francais
+            {/* Francais */}
+            {t('sharedWithAllUsersRoles.components.topbar.languagePicker.french')}
+          </Menu.Item>
+
+          <Menu.Item
+            size={'sm'}
+            leftSection={<Arabic />}
+            rightSection={currentLang === 'ar' ? <IconCheck size={16} style={{ color: 'var(--m-color-blue-6)' }} /> : null}
+            onClick={() => changeLanguage('ar')}
+            active={currentLang === 'ar'}
+          >
+            {/* Arabic */}
+            {t('sharedWithAllUsersRoles.components.topbar.languagePicker.arabic')}
           </Menu.Item>
 
 
         </Menu.Dropdown>
       </Menu>
+
+
     </Group>
   );
 }

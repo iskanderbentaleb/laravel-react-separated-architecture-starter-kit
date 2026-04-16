@@ -1,5 +1,16 @@
 {
 
+    "sharedWithAllUsersRoles": {
+        "components": {
+            "topbar": {
+                "languagePicker": {
+                    "english": "English",
+                    "french": "French",
+                    "arabic": "Arabic"
+                }  
+            }
+        }
+    },
     "guest": {
             "pages":{
                 "authentication": {
@@ -97,6 +108,24 @@
                     "verify-success": "Your email is now verified.",
                     "not-verified": "Your email is still not verified. Please check your inbox.",
                     "check-error": "Please try again."
+                },
+                "resetPassword": {
+                    "title": "Reset Your Password",
+                    "description": "Enter your new password below to reset your account password.",
+                    "new-password": "New Password",
+                    "new-password-placeholder": "Enter new password",
+                    "confirm-password": "Confirm Password",
+                    "confirm-password-placeholder": "Confirm new password",
+                    "reset-button": "Reset Password",
+                    "back-login-button": "Back to login",
+                    "validation": {
+                        "password-error": "Password must be at least 8 characters",
+                        "confirm-password-error": "Passwords do not match"
+                    },
+                    "messages": {
+                        "password-reset-success": "Password reset successfully! Please login with your new password.",
+                        "password-reset-error": "Failed to reset password. Please try again or request a new link."
+                    }
                 }
             }
     },
@@ -331,7 +360,7 @@
                 "userMenu": {
                     "settings": "Settings",
                     "logout": "Logout"
-                }
+                }           
             }
         },
         "pages": {

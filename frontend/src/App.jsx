@@ -4,10 +4,12 @@ import UserContext from "./context/userContext";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./Router/index";
 import { Notifications } from '@mantine/notifications';
-import { MantineProvider, createTheme } from '@mantine/core';
+import { DirectionProvider, MantineProvider, createTheme } from '@mantine/core';
 
 import "./App.css";
 import "./i18n";
+import { useEffect } from 'react';
+import i18n from './i18n';
 
 export const themeColor = [
   "#eaf2ff",
@@ -41,19 +43,36 @@ export const themeColorDark = [
 
 export const theme = createTheme({
   primaryColor: "themeColor",
+  // 1. Tell Mantine to use the CSS variable we defined
+  fontFamily: 'var(--app-font)', 
   colors: {
     themeColor,
     dark: themeColorDark,
-  }
+  },
+
 });
 
 export default function App() {
+
+  useEffect(() => {
+    const currentLang = i18n.language;
+    const currentDir = currentLang === "ar" ? "rtl" : "ltr";
+    
+    // Set direction
+    document.documentElement.dir = currentDir;
+    // Set language (important for accessibility and font rendering)
+    document.documentElement.lang = currentLang;
+  }, [i18n.language]);
+
+
   return (
-    <MantineProvider theme={theme} defaultColorScheme="dark">
-      <UserContext>
-        <Notifications />
-        <RouterProvider router={router} />
-      </UserContext>
-    </MantineProvider>
+    <DirectionProvider>
+      <MantineProvider theme={theme} defaultColorScheme="dark">
+        <UserContext>
+          <Notifications />
+          <RouterProvider router={router} />
+        </UserContext>
+      </MantineProvider>
+    </DirectionProvider>
   );
 }
