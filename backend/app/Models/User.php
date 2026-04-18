@@ -22,7 +22,15 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function getProfilePhotoUrlAttribute()
     {
-        return $this->profile_photo_path ? asset('storage/' . $this->profile_photo_path) : null;
+        if (!$this->profile_photo_path) {
+            return null;
+        }
+
+        if (str_starts_with($this->profile_photo_path, 'http')) {
+            return $this->profile_photo_path;
+        }
+
+        return asset('storage/'.$this->profile_photo_path);
     }
 
     public function getTwoFactorSetupPendingAttribute()
@@ -47,6 +55,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'two_factor_enabled',
         'two_factor_code',
         'two_factor_expires_at',
+        'google_id',
+        'email_verified_at',
     ];
 
     /**
@@ -58,6 +68,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'remember_token',
         'two_factor_code',
+        'google_id',
     ];
 
     /**

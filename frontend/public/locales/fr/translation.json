@@ -24,7 +24,21 @@
                 "submit": "Connexion",
                 "login-success-toast": "Connexion réussie ! Bon retour ! 🎉",
                 "logout-success-toast": "Déconnexion réussie ! À la prochaine ! 👋",
-                "register": "Pas de compte ? S'inscrire"
+                "register": "Pas de compte ? S'inscrire",
+                "two-factor-sent-toast": "Code à deux facteurs envoyé à votre email.",
+                "or":"OU",
+                "google-signin": "Se connecter avec Google",
+                "oauth-success-title": "Connexion Réussie",
+                "oauth-success-message": "Bienvenue ! Vous vous êtes connecté avec succès avec Google.",
+                "oauth-error-title": "Échec de l'authentification",
+                "oauth-error-message": "Échec de la connexion Google. Veuillez réessayer.",
+                "oauth-processing": "Finalisation de la connexion Google...",
+                "oauth-redirecting": "Redirection vers votre tableau de bord...",
+                "oauth-failed": "Échec de l'authentification",
+                "oauth-redirecting-login": "Redirection vers la page de connexion...",
+                "oauth-missing-data": "Données d'authentification manquantes",
+                "oauth-invalid-token": "Jeton d'authentification invalide",
+                "oauth-verifying": "Vérification de vos identifiants..."
             },
             "register": {
                 "welcome": "Créer un compte",
@@ -206,6 +220,10 @@
                 },
                 "saveChanges": "Enregistrer les modifications",
                 "messages": {
+                    "invalidTwoFactorCode": {
+                        "title": "Code Invalide",
+                        "message": "Le code à deux facteurs est invalide. Veuillez réessayer."
+                    },
                     "noChanges": {
                         "title": "Aucune modification détectée",
                         "message": "Vous n'avez mis à jour aucun champ du profil."
@@ -431,6 +449,10 @@
                 },
                 "saveChanges": "Enregistrer les modifications",
                 "messages": {
+                    "invalidTwoFactorCode": {
+                        "title": "Code Invalide",
+                        "message": "Le code à deux facteurs est invalide. Veuillez réessayer."
+                    },
                     "noChanges": {
                         "title": "Aucune modification détectée",
                         "message": "Vous n'avez mis à jour aucun champ du profil."

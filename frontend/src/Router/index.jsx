@@ -4,6 +4,7 @@ import LandingPage from '../Layout/guestPages/pages/LandingPage'
 import Login from '../Layout/guestPages/pages/Login'
 import Register from '../Layout/guestPages/pages/Register'
 import ForgetPassword from '../Layout/guestPages/pages/ForgetPassword'
+import OAuthSuccess from '../Layout/guestPages/pages/OAuthSuccess'
 import LayoutGuest from '../Layout/guestPages/Layout'
 import LayoutAdmin from '../Layout/AdminPages/Layout'
 import Dashboard from '../Layout/AdminPages/pages/Dashboard'
@@ -26,6 +27,8 @@ export const FORGET_PASSWORD_ROUTE = '/forget-password'
 export const RESET_PASSWORD_ROUTE = '/password-reset/:token'
 export const VERIFY_EMAIL_ROUTE = '/verify-email'
 export const TWO_FACTOR_CHALLENGE_ROUTE = '/two-factor-challenge'
+export const OAUTH_SUCCESS_ROUTE = '/oauth-success'
+export const OAUTH_BACKEND_ROUTE = import.meta.env.VITE_BACKEND_URL + '/auth/google'
 // guest routes
 
 
@@ -82,6 +85,10 @@ export const router = createBrowserRouter([
                 path: TWO_FACTOR_CHALLENGE_ROUTE,
                 element: <TwoFactorChallenge />
             },
+            {
+                path: OAUTH_SUCCESS_ROUTE,
+                element: <OAuthSuccess />
+            }
         ]
     },
 

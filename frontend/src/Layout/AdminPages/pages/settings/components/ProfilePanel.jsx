@@ -42,6 +42,7 @@ export function ProfilePanel({
     avatarInputRef.current?.click();
   };
 
+
   return (
     <Paper
       withBorder
@@ -95,7 +96,7 @@ export function ProfilePanel({
                         width: avatarSize,
                         height: avatarSize,
                         borderRadius: '50%',
-                        border: '3px solid white',
+                        border: '2px solid white',
                         boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
                       }}
                     >

@@ -2,12 +2,14 @@
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
+use App\Http\Controllers\Auth\GoogleAuthController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use Laravel\Socialite\Socialite;
 
 // set laguages // put paramerter of like : /login?locale=fr
 Route::middleware(['locale'])->group(function () {
@@ -46,6 +48,12 @@ Route::middleware(['locale'])->group(function () {
     Route::middleware(['auth:sanctum,seller'])->group(function () {
         Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->middleware('auth')->name('logout');
     });
+
+
+    Route::get('/auth/google', [GoogleAuthController::class, 'redirectToGoogle']);
+    Route::get('/auth/google/callback', [GoogleAuthController::class, 'handleGoogleCallback']);
+
+
 
 });
 

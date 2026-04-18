@@ -14,18 +14,32 @@
     "guest": {
             "pages":{
                 "authentication": {
-                    "welcome": "Welcome 🎉!",
+                    "welcome": "Welcome Back",
                     "email": "Email",
-                    "email-error": "Invalid email",
-                    "email-error-toast": "Please provide a valid email",
-                    "password": "Password", 
+                    "password": "Password",
+                    "email-error": "Invalid email address",
                     "password-error": "Password must be at least 8 characters",
-                    "password-error-toast": "Please fill in the password field",
-                    "password-forgot": "Forgot password?",  
-                    "submit": "Login",
-                    "login-success-toast": "Login successful! Welcome back! 🎉",
+                    "email-error-toast": "Please enter a valid email address",
+                    "password-error-toast": "Password must be at least 8 characters",
+                    "password-forgot": "Forgot password?",
                     "logout-success-toast": "Logout successful! See you next time! 👋",
-                    "register": "Don't have an account? Register"
+                    "submit": "Sign In",
+                    "register": "Create an account",
+                    "login-success-toast": "Login successful! Redirecting...",
+                    "two-factor-sent-toast": "Two-factor code sent to your email.",
+                    "or":"OR",
+                    "google-signin": "Sign in with Google",
+                    "oauth-success-title": "Login Successful",
+                    "oauth-success-message": "Welcome! You've successfully signed in with Google.",
+                    "oauth-error-title": "Authentication Failed",
+                    "oauth-error-message": "Failed to complete Google sign-in. Please try again.",
+                    "oauth-processing": "Completing Google Sign-in...",
+                    "oauth-redirecting": "Redirecting you to your dashboard...",
+                    "oauth-failed": "Authentication Failed",
+                    "oauth-redirecting-login": "Redirecting to login page...",
+                    "oauth-missing-data": "Missing authentication data from Google sign-in",
+                    "oauth-invalid-token": "Invalid authentication token",
+                    "oauth-verifying": "Verifying your credentials..."
                 },
                 "register": {
                     "welcome": "Create an Account",
@@ -207,6 +221,10 @@
                 },
                 "saveChanges": "Save Changes",
                 "messages": {
+                    "invalidTwoFactorCode": {
+                        "title": "Invalid Code",
+                        "message": "The two-factor code is invalid. Please check your email and try again."
+                    },
                     "noChanges": {
                         "title": "No changes detected",
                         "message": "You have not updated any profile fields."
@@ -432,6 +450,10 @@
                 },
                 "saveChanges": "Save Changes",
                 "messages": {
+                    "invalidTwoFactorCode": {
+                        "title": "Invalid Code",
+                        "message": "The two-factor code is invalid. Please check your email and try again."
+                    },
                     "noChanges": {
                         "title": "No changes detected",
                         "message": "You have not updated any profile fields."

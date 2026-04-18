@@ -317,13 +317,6 @@ export default function UserSettings() {
         } else {
           setTwoFactorModalOpened(false);
           setTwoFactorCode('');
-          notifications.show({
-            title: t('admin.pages.settings.messages.twoFactorDisabled.title'),
-            message: t('admin.pages.settings.messages.twoFactorDisabled.message'),
-            color: 'green',
-            icon: <IconCheck size={16} />,
-            radius: 'md',
-          });
         }
       } catch (error) {
         notifications.show({

@@ -42,6 +42,7 @@ export function ProfilePanel({
     avatarInputRef.current?.click();
   };
 
+
   return (
     <Paper
       withBorder
@@ -56,10 +57,10 @@ export function ProfilePanel({
           {/* Header */}
           <Card style={{ padding: '24px 32px' }} radius={'none'}>
             <Text fw={600} size="lg">
-              {t('seller.pages.settings.profileSettings')}
+              {t('admin.pages.settings.profileSettings')}
             </Text>
             <Text size="sm" c="dimmed" style={{ marginTop: 4 }}>
-              {t('seller.pages.settings.manageProfileInfo')}
+              {t('admin.pages.settings.manageProfileInfo')}
             </Text>
           </Card>
 
@@ -70,7 +71,7 @@ export function ProfilePanel({
               <Paper withBorder radius="md" p="xl" >
                 <Stack align="center" gap="lg" style={{ width: '100%' }}>
                   <Text fw={500} size="sm" c="dimmed" tt="uppercase" ta="center" letterSpacing={0.5}>
-                    {t('seller.pages.settings.profilePicture.title')}
+                    {t('admin.pages.settings.profilePicture.title')}
                   </Text>
 
                   <div
@@ -95,7 +96,7 @@ export function ProfilePanel({
                         width: avatarSize,
                         height: avatarSize,
                         borderRadius: '50%',
-                        border: '3px solid white',
+                        border: '2px solid white',
                         boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
                       }}
                     >
@@ -122,7 +123,7 @@ export function ProfilePanel({
 
                   <Stack gap="sm" style={{ width: '100%', maxWidth: 260 }}>
                     <Text size="xs" c="dimmed" ta="center">
-                      {t('seller.pages.settings.profilePicture.description')}
+                      {t('admin.pages.settings.profilePicture.description')}
                     </Text>
                     <Button
                       fullWidth
@@ -131,7 +132,7 @@ export function ProfilePanel({
                       radius="md"
                       leftSection={<IconPhotoEdit size={16} />}
                     >
-                      {t('seller.pages.settings.profilePicture.changePhoto')}
+                      {t('admin.pages.settings.profilePicture.changePhoto')}
                     </Button>
                     {avatarFile && (
                       <Button
@@ -142,7 +143,7 @@ export function ProfilePanel({
                         radius="md"
                         leftSection={<IconTrash size={16} />}
                       >
-                        {t('seller.pages.settings.profilePicture.removeButton')}
+                        {t('admin.pages.settings.profilePicture.removeButton')}
                       </Button>
                     )}
                     <input
@@ -160,7 +161,7 @@ export function ProfilePanel({
               <Paper withBorder radius="md" p="xl">
                 <Stack gap="lg" style={{ width: '100%' }}>
                   <Text fw={500} size="sm" c="dimmed" tt="uppercase" letterSpacing={0.5}>
-                    {t('seller.pages.settings.personalInformation')}
+                    {t('admin.pages.settings.personalInformation')}
                   </Text>
 
                   <Divider />
@@ -169,10 +170,10 @@ export function ProfilePanel({
                     {/* Name Field */}
                     <div>
                       <Text size="sm" fw={500} mb={6}>
-                        {t('seller.pages.settings.fullName.label')} <span style={{ color: '#fa5252' }}>*</span>
+                        {t('admin.pages.settings.fullName.label')} <span style={{ color: '#fa5252' }}>*</span>
                       </Text>
                       <TextInput
-                        placeholder={t('seller.pages.settings.fullName.placeholder')}
+                        placeholder={t('admin.pages.settings.fullName.placeholder')}
                         size="sm"
                         radius="md"
                         {...profileForm.getInputProps('name')}
@@ -182,20 +183,20 @@ export function ProfilePanel({
                     {/* Email Field */}
                     <div>
                       <Text size="sm" fw={500} mb={6}>
-                        {t('seller.pages.settings.email.label')} <span style={{ color: '#fa5252' }}>*</span>
+                        {t('admin.pages.settings.email.label')} <span style={{ color: '#fa5252' }}>*</span>
                       </Text>
                       <TextInput
-                        placeholder={t('seller.pages.settings.email.placeholder')}
+                        placeholder={t('admin.pages.settings.email.placeholder')}
                         size="sm"
                         radius="md"
                         {...profileForm.getInputProps('email')}
                         rightSection={
                           userData.email_verified_at ? (
-                            <Tooltip label={t('seller.pages.settings.email.verified')} position="top-end" withArrow>
+                            <Tooltip label={t('admin.pages.settings.email.verified')} position="top-end" withArrow>
                               <IconCircleCheck size={18} color="#40c057" />
                             </Tooltip>
                           ) : (
-                            <Tooltip label={t('seller.pages.settings.email.notVerified')} position="top-end" withArrow>
+                            <Tooltip label={t('admin.pages.settings.email.notVerified')} position="top-end" withArrow>
                               <IconCircleX size={18} color="#fa5252" />
                             </Tooltip>
                           )
@@ -208,7 +209,7 @@ export function ProfilePanel({
                       <Paper withBorder p="sm" radius="md" >
                         <Group justify="space-between" align="center" wrap="wrap" gap="sm">
                           <Text size="xs" c="red">
-                            {t('seller.pages.settings.email.notVerifiedMessage')}
+                            {t('admin.pages.settings.email.notVerifiedMessage')}
                           </Text>
                           <Button
                             variant="light"
@@ -220,7 +221,7 @@ export function ProfilePanel({
                             onClick={handleSendVerificationEmail}
                             disabled={!canSendVerification}
                           >
-                            {t('seller.pages.settings.email.sendVerification')}
+                            {t('admin.pages.settings.email.sendVerification')}
                           </Button>
                         </Group>
                       </Paper>
@@ -229,10 +230,10 @@ export function ProfilePanel({
                     {/* Phone Field */}
                     <div>
                       <Text size="sm" fw={500} mb={6}>
-                        {t('seller.pages.settings.phone.label')}
+                        {t('admin.pages.settings.phone.label')}
                       </Text>
                       <TextInput
-                        placeholder={t('seller.pages.settings.phone.placeholder')}
+                        placeholder={t('admin.pages.settings.phone.placeholder')}
                         size="sm"
                         radius="md"
                         {...profileForm.getInputProps('phone')}
@@ -253,7 +254,7 @@ export function ProfilePanel({
                 loading={profileLoading}
                 disabled={!profileHasChanges || profileLoading}
               >
-                {t('seller.pages.settings.saveChanges')}
+                {t('admin.pages.settings.saveChanges')}
               </Button>
             </Group>
           </Card>

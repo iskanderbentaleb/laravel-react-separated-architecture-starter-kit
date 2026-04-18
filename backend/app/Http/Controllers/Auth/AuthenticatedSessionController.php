@@ -48,7 +48,7 @@ class AuthenticatedSessionController extends Controller
                 'message' => 'A verification code has been sent to your email.',
                 'user' => [
                     'email' => $user->email,
-                    'role' => $user->getRoleAttribute(),          
+                    'role' => $user->getRoleAttribute(),
                 ],
             ]);
         }
@@ -61,7 +61,7 @@ class AuthenticatedSessionController extends Controller
 
     /**
      * Send the two-factor authentication code to the user.
-    */ 
+    */
 
     protected function sendTwoFactorCode(Authenticatable $user): void
     {
@@ -83,6 +83,8 @@ class AuthenticatedSessionController extends Controller
 
     // Get all guard names from the config
     $guards = array_keys(config('auth.guards'));
+
+    $user = null;
 
     // Loop through each guard and logout if authenticated
     foreach ($guards as $guard) {
