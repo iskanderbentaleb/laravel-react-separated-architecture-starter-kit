@@ -155,7 +155,7 @@ export default function AuthenticationPage() {
               <Loader color="themeColor.9" type="dots" />
             </Button>
           ) : (
-            <Stack gap="md" mt="xl">
+            <Stack gap="md" mt="sm">
               {/* Sign In Button */}
               <Button 
                 color="themeColor.9" 
@@ -168,7 +168,7 @@ export default function AuthenticationPage() {
 
               {/* Divider */}
               <Divider 
-                label={t('guest.pages.authentication.or') || "OR"} 
+                label={t('guest.pages.authentication.or')} 
                 labelPosition="center" 
                 my="md"
               />
